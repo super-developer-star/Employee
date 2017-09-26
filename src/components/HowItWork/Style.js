@@ -102,9 +102,13 @@ export const RightArrow = styled.img`
     }
 `
 export const VerticalArrow = styled.img`
-    width: 5vw;
+    width: 7vw;
     @media(min-width:768px){
         display: none;
+    }
+
+    @media(min-width:392px) and (max-width:767px){
+        width: 5vw;
     }
 `
 export const Content = styled.div`
