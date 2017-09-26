@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router';
 
 import Header from '../../components/Header';
 import ProfileForm from '../../components/ProfileForm';
-import TagList from '../../components/TabList';
+import TagList from '../../components/TagList';
 import Images from '../../themes/images';
 import { Wrapper, Content, Title, FieldWrapper, Text, ButtonWrapper, Button, Form, UnderLine, TapWrapper,  Navigation, NavigationButton, Img } from './Style';
 
