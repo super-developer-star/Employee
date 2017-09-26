@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'nudista-web';
+    src: url('../fonts/NudistaLight.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0;
+    font-family: 'nudista-web', sans-serif;
+  }
