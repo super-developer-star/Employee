@@ -30,15 +30,12 @@ export const Heading = styled.h3`
     @media(min-width: 1024px) {
         font-size: 80px;
     }
-
     @media(min-width:768px) and (max-width:1200px){
         font-size: 6vw;
     }
-
     @media(min-width: 592px) and (max-width: 767px){
         font-size: 6vw;
     }
-
     @media(max-width:592px){
         font-size: 32px;
     }
@@ -53,13 +50,11 @@ export const Text = styled.p`
     @media(min-width:768px) and (max-width:1023px){
         font-size: ${props => props.smaller ? '13px' : '2.5vw'};
     }
-
     @media(max-width: 767px){
         font-size: ${props => props.smaller ? '13px' : '20px'};
         margin: 0 25px 0 20px;
         line-height:30px;
     }
-
     @media(max-width: 392px){
         font-size: ${props => props.smaller ? '12px' : '17px'};
         line-height:25px;
@@ -83,11 +78,9 @@ export const SignUpLink = styled.a`
     &:hover, &:focus {
         opacity: 0.85;
     }
-
     @media(min-width: 1024px) {
         font-size: 28px;
     }
-
     @media(min-width:768px) and (max-width:1023px){
         font-size: 3vw;
         padding: 2vw 12vw;
@@ -95,7 +88,6 @@ export const SignUpLink = styled.a`
     @media(max-width: 767px) {
         padding: 10px 80px;
     }
-
     @media(max-width: 392px) {
         padding: 7px 70px;
     }

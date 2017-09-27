@@ -4,10 +4,7 @@ import {Form, Checkbox } from 'react-form'
 import { Wrapper, FieldWrapper, ButtonWrapper, Button, SubHeading } from './Style'
 import Images from '../../themes/images'
 
-export default class ProfileForm extends React.Component {
-
-
-
+class ProfileForm extends React.Component {
     render() {
         return (
             <Wrapper>
@@ -126,3 +123,5 @@ export default class ProfileForm extends React.Component {
         )
     }
 }
+
+export default ProfileForm;

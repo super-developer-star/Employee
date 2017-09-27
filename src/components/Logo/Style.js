@@ -10,7 +10,6 @@ export const Heading = styled.a`
     span {
         font-weight: 700;
     }
-
     &:hover, &:focus {
         cursor: pointer;
         span {
@@ -18,11 +17,9 @@ export const Heading = styled.a`
             transition: 5s ease all;
         }
     }
-
     @media(max-width:767px){
         margin-right: auto;
     }
-
     @media(max-width:462px){
         font-size: 30px;
     }

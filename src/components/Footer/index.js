@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 import { Container, Logo, List, ListItems, Link, MobileList} from './Style'
 import Images from '../../themes/images'
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
 
     gotoPage = (path) => {
         browserHistory.push(path);
@@ -37,3 +37,5 @@ export default class Footer extends React.Component {
         )
     }
 }
+
+export default Footer;

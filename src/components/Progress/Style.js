@@ -26,7 +26,6 @@ export const Number = styled.div`
     @media(max-width:767px){
         font-size: 17px;
     }
-
     @media(max-width:462px){
         font-size: 15px;
         ${props =>props.static ? 'padding-left:25px;':''}
@@ -43,7 +42,6 @@ export const Slash = styled.div`
         @media(max-width:767px){
             width: 35px;
         } 
-
         @media(max-width:462px){
             width: 32px;
         }    
@@ -62,11 +60,9 @@ export const ProgressBar = styled.div`
         height: 20px;
         border-radius: 10px;
     }
-
     @media(max-width:1472px){
         width: 25vw;
     }
-
     @media(max-width:767px){
         width: 40vw;
     }

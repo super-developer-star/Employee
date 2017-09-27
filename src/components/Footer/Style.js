@@ -13,7 +13,6 @@ export const Container = styled.footer`
     @media(min-width: 768px) {
         padding: 150px 0;
     }
-
     @media(max-width: 392px){
         padding: 100px 0 100px;
         margin-top: -35px;
@@ -53,8 +52,7 @@ export const MobileList = styled.ul`
         padding: 0;
         display: block;
     }
-        display: none;
-    
+        display: none;   
 `
 
 export const ListItems = styled.li`
@@ -73,7 +71,6 @@ export const Link = styled.a`
         cursor: pointer;
         color: #777;
     }
-
     @media(max-width: 767px) {
         ${props =>props.social ? '':'margin: 5px 15px; font-size: 17px;'}
     }

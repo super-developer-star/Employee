@@ -49,13 +49,11 @@ export const Button = styled.label`
     input {
         display: none;
     }
-
     &:hover, &:focus {
         background-color: #9eda9e;
         color: #FFF;
         cursor: pointer;
     }
-    
     @media(max-width:767px){
         font-size: 15px;
         align-items: center;
@@ -65,7 +63,6 @@ export const Button = styled.label`
         padding: 10px 60px;
         width: calc(100% * (1/10) - 10px - 1px);
     }
-
     img {
         width: 18px;
         margin-left: 15px;

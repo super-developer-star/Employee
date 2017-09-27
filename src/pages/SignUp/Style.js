@@ -15,12 +15,11 @@ export const Title = styled.h1`
     @media(max-width: 392px){ font-size: 40px;}
 `
 export const ButtonWrapper = styled.div`
-    ${props =>props.signup ? 'margin: 75px 0 150px;':'margin: 75px 0 35px;'}
+    ${props =>props.signup ? 'margin: 75px 0 50px;':'margin: 75px 0 35px;'}
     display: flex;
     justify-content: center;    
     
-    @media(max-width: 767px){
-        ${props =>props.signup ? 'margin: 75px 0 150px;':'margin: 75px 0 35px;'}
+    @media(max-width: 767px){        
         flex-direction: column;
         align-items: center;        
     }
@@ -48,12 +47,10 @@ export const SocialButton =styled.div`
         margin: 0 2vw;
         ${props =>props.google? 'img{width:45px}':'img{width:35px;}'}
     }
-
     @media(max-width:767px){
         width: 350px;
         margin-bottom: 30px;
     }
-
     @media(max-width: 392px){
          font-size: 20px; 
          width: 300px;
@@ -80,6 +77,7 @@ export const Form = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
     div {
         width: 815px !important;
         font-size: 23px !important;
@@ -89,37 +87,28 @@ export const Form = styled.div`
         font-size: 23px; 
         ${props =>props.error ? 'color:#f7be28 !important':''}       
     }
-
     input {
         color: #333 !important;
     }
-
     @media(max-width: 1023px){
         div {
             width: 700px !important;
         }
     }
-
     @media(max-width: 767px){
         div {
             width: calc(90% - 40px) !important;
         }
     }
-
-    @media(max-width: 767px){
-        div {
-            width: calc(90% - 40px) !important;
-        }
-    }
-
-    
     @media(max-width: 392px){
         div {
             width: 80% !important;
+            font-size: 20px !important;
         }
-    }
-
-    @media(max-width: 392px){ div{ font-size: 20px !important; } label {font-size:20px}}
+        label {
+            font-size:20px
+        }
+    }    
 `
 export const UnderLine = styled.hr`
     width: 850px;
@@ -128,7 +117,6 @@ export const UnderLine = styled.hr`
     @media(max-width: 1023px){
         width: 735px;
     }
-
     @media(max-width: 767px){
         width: 90%;
     }
@@ -154,7 +142,6 @@ export const SignUpButton = styled.a`
         cursor: pointer;
         ${props =>props.active ? 'background-color: #67c77f;':'background-color: #f5c64d;'}
     }
-
     @media(max-width: 1023px){ padding: 17px 80px;}
     @media(max-width: 392px){ font-size: 20px;}
 `

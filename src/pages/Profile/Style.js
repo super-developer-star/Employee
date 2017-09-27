@@ -31,12 +31,10 @@ export const SubHeading = styled.p`
     @media(max-width:767px){
          font-size: ${props =>props.small ? '':'27px;'}
     }
-
     @media(max-width:462px){
         font-size: ${props =>props.small ? '16px':'24px;'}
         font-weight: 700;
     }
-
     @media(max-width:392px){
         font-size: ${props =>props.small ? '14px':'20px;'}
         font-weight: 700;
@@ -66,7 +64,6 @@ export const Button = styled.a`
         color: #FFF;
         cursor: pointer;
     }
-
     @media(max-width:767px){
         font-size: 15px;
         align-items: center;
@@ -89,18 +86,23 @@ export const Form = styled.div`
     label {
         font-size: 23px;        
     }
-
     input {
         color: #333 !important;
     }
-
     @media(max-width: 767px){
         div {
             ${props =>props.add ? 'width: 100% !important;':'width: 60% !important;'}
+            font-size: 17px !important;
+        }
+        label {
+            font-size:17px
         }
     }
-    
-    @media(max-width: 768px){ div{ font-size: 17px !important; } label {font-size:17px}}
+    @media(max-width: 392px){         
+        div {
+            ${props =>props.add ? 'width: 100% !important;':'width: 70vw !important;'}                
+        }
+    }
 `
 export const UnderLine = styled.hr`
     width: 450px;
@@ -109,6 +111,9 @@ export const UnderLine = styled.hr`
 
     @media(max-width: 767px){    
         ${props =>props.add ? 'width: 100%;':'width: 60%;'}
+    }
+    @media(max-width: 392px){    
+        ${props =>props.add ? 'width: 100%;':'width: 70vw;'}
     }
 `
 export const TagWrapper = styled.div`
@@ -143,7 +148,9 @@ export const NavigationButton = styled.a`
     @media(max-width:645px){
         ${props =>props.prev? '':'padding: 15px 12vw;'}
     }
-
+    @media(max-width:392px){
+        font-size: 20px;
+    }
     &:hover {
         cursor: pointer;
         ${props =>props.prev? 'background-color: #eff5f4;':'background-color: #67c77f;'}
@@ -154,6 +161,9 @@ export const Img = styled.img`
     ${props =>props.right ? 'padding-left:10px;':''}  
     @media(max-width:645px){
         width: 45px;
+    } 
+    @media(max-width:392px){
+        width: 35px;
     } 
 `
 export const FlexWrapper = styled.div`
@@ -169,9 +179,11 @@ export const TextFieldWrapper = styled.div`
     @media(max-width: 767px){
         width: 50%;
     }
-
     @media(max-width: 592px){
         width: 60%
+    }
+    @media(max-width: 392px){
+        width: 70vw;
     }
 `
 export const AddButton = styled.a`
@@ -185,7 +197,6 @@ export const AddButton = styled.a`
     &:hover {
         cursor: pointer;
     }
-
     @media(max-width: 592px){
         margin-top: 15px;
     }
@@ -204,7 +215,7 @@ export const IconWrapper = styled.div`
             margin: 0 1vw;
         }
         @media(max-width:392px){
-            width: 60px !important;
+            width: 50px !important;
             margin: 0;
         }
     }

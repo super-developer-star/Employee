@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
         color: #FFF;
         cursor: pointer;
     }
-
     @media(max-width:767px){
         font-size: 15px;
         align-items: center;

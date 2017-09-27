@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Wrapper, Fraction, Slash, Number, ProgressBar, ActiveBar } from './Style'
 
-export default class Progress  extends React.Component {
+class Progress  extends React.Component {
 
     render() {        
         if(this.props.landing){
@@ -23,3 +23,5 @@ export default class Progress  extends React.Component {
         }             
     }
 }
+
+export default  Progress;

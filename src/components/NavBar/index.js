@@ -5,7 +5,7 @@ import $ from 'jquery';
 import { Wrapper, Button, Nav } from './Style'
 import Images from '../../themes/images'
 
-export default class Navigation extends Component {
+class Navigation extends Component {
     constructor() {
       super()
       this.state = {
@@ -59,3 +59,5 @@ export default class Navigation extends Component {
       )
     }
   }
+
+  export default Navigation;

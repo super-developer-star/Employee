@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Wrapper, Icon } from './Style'
 import Images from '../../themes/images'
 
-export default class Tag extends Component {
+class Tag extends Component {
 
     render() {
         return (
@@ -14,3 +14,5 @@ export default class Tag extends Component {
         )
     }
 }
+
+export default Tag;

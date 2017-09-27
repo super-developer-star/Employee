@@ -14,6 +14,7 @@ export const Button = styled.button`
     position: relative;
     z-index: 3;
     width: 40px;
+    
     &:hover, &:focus {        
         cursor: pointer;    
     }
@@ -40,18 +41,17 @@ export const Nav = styled.ul`
     }
 
     li {
-    padding: 10px 0;
+        padding: 10px 0;
+        a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.5s;
+            -webkit-transition: 0.5s;
 
-    a {
-        color: #fff;
-        text-decoration: none;
-        transition: 0.5s;
-        -webkit-transition: 0.5s;
-
-        &:hover, &:focus {
-            cursor: pointer;
-            color: #9e8c8c;
+            &:hover, &:focus {
+                cursor: pointer;
+                color: #9e8c8c;
+            }
         }
-    }
     }
 `
