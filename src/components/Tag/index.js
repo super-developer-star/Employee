@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Wrapper, Icon } from './Style'
+import Images from '../../themes/images'
 
 export default class Tag extends Component {
 
@@ -8,7 +9,7 @@ export default class Tag extends Component {
         return (
             <Wrapper>
                 {this.props.name}
-                <Icon onClick={() => this.props.onRemove()}>x</Icon>
+                <Icon src={Images.remove} onClick={() => this.props.onRemove()} />
             </Wrapper>
         )
     }

@@ -34,6 +34,9 @@ export const ButtonWrapper = styled.div`
 `
 
 export const Button = styled.label`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid #FFF;
     ${props =>props.active ? 'background-color: #4cbf69;color: #FFF;' : 'background-color: #c5eac5;color: #555;'}
     border-radius: 50px;
@@ -59,5 +62,10 @@ export const Button = styled.label`
         justify-content: center;
         padding: 10px 60px;
         width: calc(100% * (1/10) - 10px - 1px);
+    }
+
+    img {
+        width: 18px;
+        margin-left: 15px;
     }
 `

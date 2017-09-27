@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Checkbox } from 'react-form'
 
 import { Wrapper, FieldWrapper, ButtonWrapper, Button, SubHeading } from './Style'
+import Images from '../../themes/images'
 
 export default class ProfileForm extends React.Component {
 
@@ -88,6 +89,32 @@ export default class ProfileForm extends React.Component {
                                         <Button active={values.fm}><Checkbox field="fm" value="fm"/>Finance Manager</Button>
                                         <Button active={values.ceo}><Checkbox field="ceo" value="ceo"/>CEO</Button>
                                         <Button active={values.other}><Checkbox field="other" value="other"/>other</Button>                 
+                                    </ButtonWrapper>
+                                </FieldWrapper>
+                            }
+                            { this.props.item === 'coffee' &&
+                                <FieldWrapper>
+                                    <SubHeading>What is your preffered coffee?</SubHeading>                        
+                                    <ButtonWrapper>
+                                        <Button active={values.es}><Checkbox field="es" value="es"/>Espresso</Button>
+                                        <Button active={values.ca}><Checkbox field="cs" value="ca"/>Cappucino</Button>
+                                        <Button active={values.fw}><Checkbox field="fw" value="fw"/>Flat white</Button>                                
+                                        <Button active={values.co}><Checkbox field="co" value="co"/>Cortado</Button>
+                                        <Button active={values.cl}><Checkbox field="cl" value="cl"/>Caffe latte</Button>
+                                        <Button active={values.ma}><Checkbox field="ma" value="ma"/>Macchiato</Button>                 
+                                        <Button active={values.tea}><Checkbox field="tea" value="tea"/>Tea</Button>                 
+                                        <Button active={values.un}><Checkbox field="un" value="un"/>Undecided<img src={Images.remove} alt="" /></Button>                 
+                                    </ButtonWrapper>
+                                </FieldWrapper>
+                            }
+                            { this.props.item === 'status' &&
+                                <FieldWrapper>
+                                    <SubHeading>What's your current status?</SubHeading>                        
+                                    <ButtonWrapper>
+                                        <Button active={values.ac}><Checkbox field="ac" value="ac"/>Active</Button>
+                                        <Button active={values.pa}><Checkbox field="pa" value="pa"/>Passive</Button>
+                                        <Button active={values.com}><Checkbox field="com" value="com"/>It's complicated</Button>                                                                                                                
+                                        <Button active={values.un}><Checkbox field="un" value="un"/>Undecided<img src={Images.remove} alt="" /></Button>                    
                                     </ButtonWrapper>
                                 </FieldWrapper>
                             }

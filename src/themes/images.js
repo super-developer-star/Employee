@@ -11,12 +11,16 @@ const images = {
     linkedin : '/assets/svgs/linkedin-icon.svg',
     check : '/assets/svgs/check-icon.svg',
     google : '/assets/svgs/google-icon.svg',
+    google1 : '/assets/svgs/google-icon1.svg',
     facebook1: '/assets/svgs/facebook-icon1.svg',
     warnning: '/assets/svgs/warnning-icon.svg',
     wRightArrow: '/assets/svgs/white-arrow.svg',
     leftArrow: '/assets/svgs/left-arrow.svg',
     bRightArrow: '/assets/svgs/right-arrow.svg',
-    verticalArrow: '/assets/svgs/vertical-arrow.svg'
+    verticalArrow: '/assets/svgs/vertical-arrow.svg',
+    remove: '/assets/svgs/remove-icon.svg',
+    github: '/assets/svgs/github-icon.svg',
+    behance: '/assets/svgs/behance-icon.svg'
 }
 
 export default images;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="master-artboard" viewBox="0 0 39.99953079223633 36.40420913696289" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" style="enable-background:new 0 0 1400 980;" width="39.99953079223633px" height="36.40420913696289px"><defs><radialGradient id="gradient-0" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" style="stop-color: #43a048"/>
+                <stop offset="1" style="stop-color: #255827"/>
+              </radialGradient><radialGradient id="gradient-1" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" style="stop-color: #43a048"/>
+                <stop offset="1" style="stop-color: #255827"/>
+              </radialGradient><radialGradient id="gradient-2" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" style="stop-color: #43a048"/>
+                <stop offset="1" style="stop-color: #255827"/>
+              </radialGradient><radialGradient id="gradient-3" gradientUnits="objectBoundingBox" cx="0.9209831357002258" cy="60.079219818115234" r="0.5" gradientTransform="matrix(-0.3707597760368928, 0.7077026385652456, -0.010629348406523409, -0.005568092566154981, 0.7588082571728463, 0.24127137857787906)">
+                
+                <stop offset="1" style="stop-color: #000000"/>
+              </radialGradient></defs>
+
+
+<rect id="ee-background" x="0" y="0" width="39.99953079223633" height="36.40420913696289" style="fill: rgb(127, 59, 124); fill-opacity: 0; pointer-events: none;"/><g transform="matrix(0.30360478162765503, -0.2771003842353821, -0.012092969380319118, -0.013249983079731464, -13.173538267612457, 50.27045822143555)"><g id="g-18" transform="matrix(1, 0, 0, 1, 0, 0)">
+	<g id="g-19">
+		<path class="st0" d="M58,49h100v100H58V49z" style="fill: rgb(94, 89, 89); fill-opacity: 1;"/>
+	</g>
+</g></g><g transform="matrix(0.2887241542339325, 0.3173580467700958, 0.013898060657083988, -0.01264434028416872, -10.247015714645386, -12.587957382202148)"><g id="g-20" transform="matrix(1, 0, 0, 1, 0, 0)">
+	<g id="g-21">
+		<path class="st0" d="M58,49h100v100H58V49z" style="fill: rgb(94, 89, 89); fill-opacity: 1;" transform="matrix(1, 0, 0, 1, -5.073771051688254, -44.95293990458276)"/>
+	</g>
+</g></g></svg>

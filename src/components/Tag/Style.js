@@ -26,9 +26,7 @@ export const Wrapper = styled.div`
         width: calc(100% * (1/10) - 10px - 1px);
     }
 `
-export const Icon = styled.span`
+export const Icon = styled.img`
     padding-left: 15px;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #272525 !important;
+    width: 18px;
 `

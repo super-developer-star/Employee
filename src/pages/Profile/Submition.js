@@ -5,8 +5,25 @@ import { browserHistory } from 'react-router';
 
 import Header from '../../components/Header';
 import TagList from '../../components/TagList';
+import ProfileForm from '../../components/ProfileForm';
 import Images from '../../themes/images';
-import { Wrapper, Content, FieldWrapper, Form, Heading, SubHeading, TagWrapper, Img, Navigation, NavigationButton, UnderLine } from './Style';
+import { 
+    Wrapper,
+    Content,
+    FieldWrapper, 
+    Form, 
+    Heading, 
+    SubHeading, 
+    TagWrapper, 
+    Img, 
+    Navigation, 
+    NavigationButton, 
+    UnderLine,
+    TextFieldWrapper,
+    FlexWrapper,
+    AddButton,
+    IconWrapper,
+    Icon } from './Style';
 
 const styles = {
     floatingLabelStyle: {
@@ -72,6 +89,35 @@ class Submition extends Component {
                     <TagWrapper>
                         <TagList data={ tags } removeTag={(index) => this.removeTag(index)} />
                     </TagWrapper>
+                    <ProfileForm item={'coffee'} />
+                    <FieldWrapper>
+                        <SubHeading>Please help us understand your profile</SubHeading> 
+                        <IconWrapper>
+                            <img src={Images.github} alt="github" />
+                            <img src={Images.google1} alt="google" /> 
+                            <img src={Images.facebook} alt="facebook" />
+                            <img src={Images.linkedin} alt="linkedin" />
+                            <img src={Images.behance} alt="behance" />                                                                                  
+                        </IconWrapper>
+                        <FlexWrapper>
+                            <TextFieldWrapper>    
+                                <Form add>
+                                    <MuiThemeProvider>
+                                        <TextField    
+                                            onKeyDown={this.getText}                                                       
+                                            floatingLabelText="http://"
+                                            floatingLabelStyle={styles.floatingLabelStyle}  
+                                            floatingLabelShrinkStyle={styles.floatingLabelShrinkStyle}                                
+                                            underlineShow={false}
+                                        />              
+                                    </MuiThemeProvider>                         
+                                </Form>                                            
+                                <UnderLine add></UnderLine> 
+                            </TextFieldWrapper>
+                            <AddButton>Add</AddButton>
+                        </FlexWrapper>                     
+                    </FieldWrapper>
+                    <ProfileForm item={'status'} />
                     <Navigation>
                         <NavigationButton prev onClick={() => this.pageNavigation('/profile/category')}><Img src={Images.leftArrow} alt="left" /></NavigationButton>
                         <NavigationButton onClick={() => this.pageNavigation('/profile/completion')}>Submit<Img right src={Images.wRightArrow} alt="right" /></NavigationButton>                       

@@ -20,9 +20,9 @@ export const FieldWrapper = styled.div`
     margin: 70px auto;
     max-width: 700px;
     text-align: center;
-    @media(max-width: 767px){ margin: 80px 0;}
-    @media(max-width: 462px){ margin: 65px 0;}
-    @media(max-width: 392px){ margin: 50px 0;}
+    @media(max-width: 767px){ margin: 80px auto;}
+    @media(max-width: 462px){ margin: 65px auto;}
+    @media(max-width: 392px){ margin: 50px auto;}
 `
 export const SubHeading = styled.p`
     margin-bottom: 0px;
@@ -94,7 +94,7 @@ export const Form = styled.div`
 
     @media(max-width: 767px){
         div {
-            width: 60% !important;
+            ${props =>props.add ? 'width: 100% !important;':'width: 60% !important;'}
         }
     }
     
@@ -105,8 +105,8 @@ export const UnderLine = styled.hr`
     border-top: 1px solid #c7c2c2;    
     margin-top: 0px;
 
-    @media(max-width: 767px){
-        width: 60%;
+    @media(max-width: 767px){    
+        ${props =>props.add ? 'width: 100%;':'width: 60%;'}
     }
 `
 export const TagWrapper = styled.div`
@@ -151,4 +151,56 @@ export const Img = styled.img`
     @media(max-width:645px){
         width: 45px;
     } 
+`
+export const FlexWrapper = styled.div`
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    
+    @media(max-width: 592px){
+        flex-direction: column;
+    }
+`
+export const TextFieldWrapper = styled.div`
+    @media(max-width: 767px){
+        width: 50%;
+    }
+
+    @media(max-width: 592px){
+        width: 60%
+    }
+`
+export const AddButton = styled.a`
+    border: 1px solid #a9a9a9;
+    font-size: 17px;
+    color: #c7c2c2;
+    border-radius: 50px;
+    padding: 10px 30px;
+
+    &:hover {
+        cursor: pointer;
+    }
+    
+    @media(max-width: 592px){
+        margin-top: 15px;
+    }
+`
+export const IconWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 0 0;
+    
+    img {
+        margin: 0 10px;
+        width: 80px !important;
+        @media(max-width:767px){
+            width: 65px !important;
+            margin: 0 1vw;
+        }
+        @media(max-width:392px){
+            width: 60px !important;
+            margin: 0;
+        }
+    }
 `
