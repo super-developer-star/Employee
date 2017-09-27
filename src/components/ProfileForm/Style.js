@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const FieldWrapper = styled.div`
     margin: 90px 0;
 `
-export const Text = styled.p`
+export const SubHeading = styled.p`
     font-size:32px; 
     color: #333;
     

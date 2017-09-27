@@ -1,7 +1,7 @@
 import React from 'react'
 import {Form, Checkbox } from 'react-form'
 
-import { Wrapper, FieldWrapper, ButtonWrapper, Button, Text } from './Style'
+import { Wrapper, FieldWrapper, ButtonWrapper, Button, SubHeading } from './Style'
 
 export default class ProfileForm extends React.Component {
 
@@ -16,7 +16,7 @@ export default class ProfileForm extends React.Component {
                             <form onSubmit={submitForm}>
                             { this.props.item === 'Engineering' &&
                                 <FieldWrapper>
-                                    <Text>{this.props.item}</Text>                        
+                                    <SubHeading>{this.props.item}</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.backend}><Checkbox field="backend" value="backend"/>Backend Engineer</Button>
                                         <Button active={values.frontend}><Checkbox field="frontend" value="frontend"/>Frontend Engineer</Button>
@@ -30,7 +30,7 @@ export default class ProfileForm extends React.Component {
                             }
                             { this.props.item === 'Sales' &&
                                 <FieldWrapper>
-                                    <Text>{this.props.item}</Text>                        
+                                    <SubHeading>{this.props.item}</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.sr}><Checkbox field="sr" value="sr"/>Sales Representative</Button>
                                         <Button active={values.ae}><Checkbox field="ae" value="ae"/>Account Executive</Button>
@@ -42,7 +42,7 @@ export default class ProfileForm extends React.Component {
                             }
                             { this.props.item === 'Product' &&
                                 <FieldWrapper>
-                                    <Text>{this.props.item}</Text>                        
+                                    <SubHeading>{this.props.item}</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.pa}><Checkbox field="pa" value="pa"/>Product Analyst</Button>
                                         <Button active={values.pmm}><Checkbox field="pmm" value="pmm"/>Product Marketing Manager</Button>
@@ -54,7 +54,7 @@ export default class ProfileForm extends React.Component {
                             }
                             { this.props.item === 'Marketing' &&
                                 <FieldWrapper>
-                                    <Text>{this.props.item}</Text>                        
+                                    <SubHeading>{this.props.item}</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.gh}><Checkbox field="gh" value="gh"/>Growth Hacker</Button>
                                         <Button active={values.mm}><Checkbox field="mm" value="mm"/>Marketing Manager</Button>
@@ -67,7 +67,7 @@ export default class ProfileForm extends React.Component {
                             }
                             { this.props.item === 'Design' &&
                                 <FieldWrapper>
-                                    <Text>{this.props.item}</Text>                        
+                                    <SubHeading>{this.props.item}</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.ur}><Checkbox field="ur" value="ur"/>UX Researcher</Button>
                                         <Button active={values.ud}><Checkbox field="ud" value="ud"/>UI Designer</Button>
@@ -80,7 +80,7 @@ export default class ProfileForm extends React.Component {
                             }
                             { this.props.item === 'Finance' &&
                                 <FieldWrapper>
-                                    <Text>{this.props.item}</Text>                        
+                                    <SubHeading>{this.props.item}</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.an}><Checkbox field="an" value="an"/>Analyst</Button>
                                         <Button active={values.ac}><Checkbox field="ac" value="ac"/>Accountant</Button>

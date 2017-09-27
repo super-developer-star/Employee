@@ -6,7 +6,7 @@ export const Content = styled.div`
    text-align: center;
 `
 
-export const Title = styled.h1`
+export const Heading = styled.h1`
     margin-top: 90px;
     font-size: 65px;        
     font-weight: 400;    
@@ -24,17 +24,19 @@ export const FieldWrapper = styled.div`
     @media(max-width: 462px){ margin: 65px 0;}
     @media(max-width: 392px){ margin: 50px 0;}
 `
-export const Text = styled.p`
+export const SubHeading = styled.p`
     margin-bottom: 0px;
     ${props =>props.small ? 'font-size:16px; margin-bottom: 30px; color: #272525;':'font-size:32px; color: #333;'}        
 
     @media(max-width:767px){
          font-size: ${props =>props.small ? '':'27px;'}
     }
+
     @media(max-width:462px){
         font-size: ${props =>props.small ? '16px':'24px;'}
         font-weight: 700;
     }
+
     @media(max-width:392px){
         font-size: ${props =>props.small ? '14px':'20px;'}
         font-weight: 700;
@@ -107,7 +109,7 @@ export const UnderLine = styled.hr`
         width: 60%;
     }
 `
-export const TapWrapper = styled.div`
+export const TagWrapper = styled.div`
     margin: 70px auto;
     max-width: 700px;
     text-align: center;
