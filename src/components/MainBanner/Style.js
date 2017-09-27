@@ -77,9 +77,11 @@ export const SignUpLink = styled.a`
     text-decoration: none;
     font-weight: 700;
     color: #333;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 
     &:hover, &:focus {
-        opacity: 0.95;
+        opacity: 0.85;
     }
 
     @media(min-width: 1024px) {

@@ -43,6 +43,8 @@ export const Button = styled.label`
     padding: 10px 30px;
     font-size: 16px;    
     margin: 7px 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 
     input {
         display: none;

@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
     font-size: 16px;    
     margin: 7px 10px;
     text-transform: capitalize;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 
     &:hover, &:focus {
         background-color: #9eda9e;

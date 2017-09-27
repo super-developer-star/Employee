@@ -58,6 +58,8 @@ export const Button = styled.a`
     padding: 10px 30px;
     font-size: 16px;    
     margin: 7px 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 
     &:hover, &:focus {
         background-color: #9eda9e;
@@ -132,6 +134,8 @@ export const NavigationButton = styled.a`
     justify-content: center;
     align-items: center;
     margin: 0 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 
     @media(max-width:767px){
         ${props =>props.prev? 'padding: 15px 20px;':'padding: 15px 80px;'}

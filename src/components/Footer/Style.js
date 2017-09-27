@@ -65,7 +65,9 @@ export const ListItems = styled.li`
 export const Link = styled.a`
     color: #333;
     text-decoration: none;    
-    font-size: 23px;    
+    font-size: 23px; 
+    -webkit-transition: 0.5s;
+    transition: 0.5s;   
 
     &:hover, &:focus {        
         cursor: pointer;

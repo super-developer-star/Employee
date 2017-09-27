@@ -147,6 +147,8 @@ export const SignUpButton = styled.a`
     font-weight: 700;
     border-radius: 50px;
     margin: 60px 0 120px 0;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 
     &:hover {
         cursor: pointer;

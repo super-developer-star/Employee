@@ -97,7 +97,7 @@ export default class ProfileForm extends React.Component {
                                     <SubHeading>What is your preffered coffee?</SubHeading>                        
                                     <ButtonWrapper>
                                         <Button active={values.es}><Checkbox field="es" value="es"/>Espresso</Button>
-                                        <Button active={values.ca}><Checkbox field="cs" value="ca"/>Cappucino</Button>
+                                        <Button active={values.ca}><Checkbox field="ca" value="ca"/>Cappucino</Button>
                                         <Button active={values.fw}><Checkbox field="fw" value="fw"/>Flat white</Button>                                
                                         <Button active={values.co}><Checkbox field="co" value="co"/>Cortado</Button>
                                         <Button active={values.cl}><Checkbox field="cl" value="cl"/>Caffe latte</Button>
