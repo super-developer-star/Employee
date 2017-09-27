@@ -176,11 +176,12 @@ export const AddButton = styled.a`
     color: #c7c2c2;
     border-radius: 50px;
     padding: 10px 30px;
+    margin-top: 10px;
 
     &:hover {
         cursor: pointer;
     }
-    
+
     @media(max-width: 592px){
         margin-top: 15px;
     }

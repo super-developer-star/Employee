@@ -8,7 +8,7 @@ import Footer from '../../components/Footer';
 import Images from '../../themes/images'
 
 const Wrapper = styled.div`
-    background: -webkit-linear-gradient(top,rgba(54, 193, 93, 0.5) 0%,rgba(64, 7, 61, 0.75) 80%), url(${Images.background}) top center no-repeat;
+    background: -webkit-linear-gradient(top,rgba(54, 193, 93, 0.5) 0%,rgba(64, 7, 61, 0.75) 80%), url(${Images.background}) center center no-repeat;
     background-size: cover;
     color: #fff;
     font-weight: 300;
