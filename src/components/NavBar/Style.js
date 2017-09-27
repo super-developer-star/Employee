@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-align-items: center;
-display: flex;
-justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 `
 export const Button = styled.button`
     ${props =>props.profile? 'border: 1px solid white; border-radius: 50%;' : 'border: none; height:62px !important; width: 62px !important; !important;'};
