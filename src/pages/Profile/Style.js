@@ -13,8 +13,7 @@ export const Heading = styled.h1`
 
     @media(max-width: 1023px){ font-size: 55px;}
     @media(max-width: 767px){ font-size: 45px;}
-    @media(max-width: 462px){ font-size: 35px; font-weight: 700;}
-    @media(max-width: 392px){ font-size: 27px; font-weight: 700;}
+    @media(max-width: 462px){ font-size: 35px; font-weight: 700;}    
 `
 export const FieldWrapper = styled.div`
     margin: 70px auto;
@@ -38,6 +37,8 @@ export const SubHeading = styled.p`
     @media(max-width:392px){
         font-size: ${props =>props.small ? '14px':'20px;'}
         font-weight: 700;
+        width: 70%;
+        margin-left: 15%;
     }
 `
 export const ButtonWrapper = styled.div`

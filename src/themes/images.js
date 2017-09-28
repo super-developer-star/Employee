@@ -2,6 +2,7 @@ const images = {
     background : '/assets/images/background.jpg',
     triangle : '/assets/images/triangle.png',
     clock : '/assets/icons/clock.png',
+    user: '/assets/images/user.png',
     talent : '/assets/svgs/talent_employer.svg',
     employer : '/assets/svgs/employer_talent.svg',
     hambugerButton : '/assets/svgs/menu.svg',

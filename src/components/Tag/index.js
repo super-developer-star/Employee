@@ -4,8 +4,11 @@ import { Wrapper, Icon } from './Style'
 import Images from '../../themes/images'
 
 class Tag extends Component {
+    constructor(props){
+        super(props);
+    }
 
-    render() {
+    render() {        
         return (
             <Wrapper>
                 {this.props.name}

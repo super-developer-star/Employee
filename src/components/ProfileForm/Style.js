@@ -22,6 +22,8 @@ export const SubHeading = styled.p`
     @media(max-width:392px){
         font-size: 20px;
         font-weight: 700;
+        width: 70%;
+        margin-left: 15%;
     }
 `
 export const ButtonWrapper = styled.div`

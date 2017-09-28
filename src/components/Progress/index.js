@@ -5,9 +5,7 @@ import { Wrapper, Fraction, Slash, Number, ProgressBar, ActiveBar } from './Styl
 class Progress  extends React.Component {
 
     render() {        
-        if(this.props.landing){
-            return null
-        } else {
+        if(this.props.visible){
             return (            
                 <Wrapper>
                     <Fraction>
@@ -20,6 +18,8 @@ class Progress  extends React.Component {
                     </ProgressBar>
                 </Wrapper>
             )
+        } else {
+            return null            
         }             
     }
 }

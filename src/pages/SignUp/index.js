@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 
 import Header from '../../components/Header';
-import { Wrapper, Content, Title, ButtonWrapper, SocialButton, CircleButton, Text, Form, UnderLine, Img, SignUpButton } from './Style';
+import { Wrapper, Content, Heading, ButtonWrapper, SocialButton, CircleButton, Text, Form, UnderLine, Img, SignUpButton } from './Style';
 import Images from '../../themes/images'
 
 const styles = {
@@ -93,9 +93,9 @@ class SignUp extends Component {
         const { isName, isEmail, isPlace, isRequired } = this.state;          
         return (
             <Wrapper>        
-                <Header percent={1}/>        
+                <Header visible percent={1}/>        
                 <Content>
-                    <Title>Sign up now</Title>
+                    <Heading>Sign up now</Heading>
                     <ButtonWrapper>
                         <SocialButton google>
                             <img src={Images.google} alt="google" />

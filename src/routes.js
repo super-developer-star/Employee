@@ -7,7 +7,7 @@ import SignUp from './pages/SignUp';
 import ProfilePage from './pages/Profile';
 import Category from './pages/Profile/Category';
 import Submition from './pages/Profile/Submition';
-import Completion from './pages/Profile/Completion';
+import Candidate from './pages/Profile/Candidate';
 
 export default (
     <Route path="/" component={ App }>
@@ -18,7 +18,7 @@ export default (
             <IndexRoute component={ Category } />
             <Route path="/profile/category" component={ Category } />
             <Route path="/profile/submition" component={ Submition } />
-            <Route path="/profile/completion" component={ Completion } />
+            <Route path="/profile/candidate" component={ Candidate } />
         </Route>
     </Route>
 )

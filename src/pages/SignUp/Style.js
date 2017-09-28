@@ -5,14 +5,13 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
    text-align: center;
 `
-export const Title = styled.h1`
-    font-size: 65px;        
-    font-weight: 400;
+export const Heading = styled.h1`
+    font-size: 65px;            
     margin-top: 80px;
 
     @media(max-width: 1023px){ font-size: 55px;}
     @media(max-width: 767px){ font-size: 45px;}
-    @media(max-width: 392px){ font-size: 40px;}
+    @media(max-width: 392px){ font-size: 35px; font-weight: 700;}
 `
 export const ButtonWrapper = styled.div`
     ${props =>props.signup ? 'margin: 75px 0 50px;':'margin: 75px 0 35px;'}
@@ -52,8 +51,8 @@ export const SocialButton =styled.div`
         margin-bottom: 30px;
     }
     @media(max-width: 392px){
-         font-size: 20px; 
-         width: 300px;
+         font-size: 17px; 
+         width: 265px;
     }
 `
 export const CircleButton = styled.div`
@@ -71,7 +70,10 @@ export const CircleButton = styled.div`
 `
 export const Text = styled.p`
     color: #f7be28;
-    font-size: 23px;    
+    font-size: 23px;   
+    @media(max-width: 392px){
+        font-size: 20px;
+    } 
 `
 export const Form = styled.div`    
     display: flex;
@@ -106,7 +108,7 @@ export const Form = styled.div`
             font-size: 20px !important;
         }
         label {
-            font-size:20px
+            font-size:17px
         }
     }    
 `
@@ -120,8 +122,12 @@ export const UnderLine = styled.hr`
     @media(max-width: 767px){
         width: 90%;
     }
+    @media(max-width: 392px){
+        margin-top: 0;
+    }
 `
 export const Img = styled.img` 
+    margin-top: 20px;
     ${props =>props.empty ? 'width:40px;':''}
     @media(max-width: 392px){ 
        ${props =>props.empty ? 'width:40px;':'width:10%;'}
