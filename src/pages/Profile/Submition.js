@@ -67,7 +67,7 @@ class Submition extends Component {
         const { tags } = this.state;
         return (
             <Wrapper>
-                <Header visible percent={3} />
+                <Header visible percent={3} save/>
                 <Content>
                     <Heading>Almost there...</Heading>
                     <FieldWrapper>

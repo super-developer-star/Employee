@@ -60,7 +60,7 @@ class Category extends Component {
         const { item, tags } = this.state;
         return (
             <Wrapper>
-                <Header visible percent={2} />
+                <Header visible percent={2} save/>                
                 <Content>                    
                     <Heading>Help us by answering<br/>a few questions</Heading>                                        
                     <FieldWrapper>

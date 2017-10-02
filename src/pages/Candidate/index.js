@@ -89,7 +89,7 @@ class Candidate extends Component {
         const { percentage, opportunities, skills, locations, value } = this.state;
         return (
             <Wrapper>
-                <Header />
+                <Header edit/>
                 <Heading>Your Profile</Heading>
                 <UserWrapper>
                     <Avatar src={Images.user} alt="user" />

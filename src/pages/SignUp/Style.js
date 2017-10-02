@@ -7,20 +7,24 @@ export const Content = styled.div`
 `
 export const Heading = styled.h1`
     font-size: 65px;            
-    margin-top: 80px;
+    margin: 90px 0;
 
     @media(max-width: 1023px){ font-size: 55px;}
     @media(max-width: 767px){ font-size: 45px;}
-    @media(max-width: 392px){ font-size: 11.5vw; font-weight:700;}
+    @media(max-width:592px){
+        margin: 15.2vw auto 10vw;
+    }
+    @media(max-width: 392px){ font-size: 11.5vw; font-weight:700;  margin: 60px auto 40px;}
 `
 export const ButtonWrapper = styled.div`
-    ${props =>props.signup ? 'margin: 75px 0 50px;':'margin: 75px 0 35px;'}
+    ${props =>props.signup ? 'margin: 75px 0 50px;':'margin: 50px 0 35px;'}
     display: flex;
     justify-content: center;    
     
     @media(max-width: 767px){        
         flex-direction: column;
-        align-items: center;        
+        align-items: center; 
+        ${props =>props.signup ? 'margin: 35px 0 0;':'margin: 50px 0 35px;'}       
     }
 `
 export const SocialButton =styled.div`
@@ -100,12 +104,12 @@ export const Form = styled.div`
     }
     @media(max-width: 767px){
         div {
-            width: calc(90% - 40px) !important;
+            width: calc(92% - 40px) !important;
         }
     }
     @media(max-width: 392px){
         div {            
-            width: 80% !important;
+            width: 83% !important;
             font-size: 20px !important;
         }
         label {

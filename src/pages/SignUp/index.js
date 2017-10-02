@@ -93,7 +93,7 @@ class SignUp extends Component {
         const { isName, isEmail, isPlace, isRequired } = this.state;          
         return (
             <Wrapper>                      
-                <Header visible percent={1}/>        
+                <Header visible percent={1}/>                       
                 <Content>
                     <Heading>Sign up now</Heading>
                     <ButtonWrapper>

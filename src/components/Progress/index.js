@@ -5,15 +5,16 @@ import { Wrapper, Fraction, Slash, Number, ProgressBar, ActiveBar } from './Styl
 class Progress  extends React.Component {
 
     render() {        
-        if(this.props.visible){
+        const { visible, save, percent } = this.props;
+        if(visible){
             return (            
-                <Wrapper>
+                <Wrapper save={save}>
                     <Fraction>
-                        <Number>{this.props.percent}</Number>
+                        <Number>{percent}</Number>
                         <Slash />
                         <Number static>3</Number>
                     </Fraction>
-                    <ProgressBar percent={this.props.percent}>
+                    <ProgressBar percent={percent}>
                         <ActiveBar />
                     </ProgressBar>
                 </Wrapper>

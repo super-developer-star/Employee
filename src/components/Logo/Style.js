@@ -5,12 +5,15 @@ export const Heading = styled.a`
     padding: 50px 0;
     @media(max-width:767px){
         margin-right: auto;
-    }     
+    }   
+    @media(max-width:592px){
+        margin-left: -20px;
+    }   
 `
 export const Img = styled.img`
     width: 210px;
     @media(max-width:492px){
-        width: 45.5vw;
+        width: 42vw;
     }
 
     &.logo {

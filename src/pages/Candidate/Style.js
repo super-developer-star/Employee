@@ -460,8 +460,8 @@ export const Contact = styled.div`
         }
         @media(max-width: 1023px){ padding: 17px 80px;}
         @media(max-width: 478px){ 
-            padding: 17px 17vw;
-            font-size: 5vw;
+            padding: 15px 15vw;
+            font-size: 6vw;
         }
     }
     @media(max-width:1124px){

@@ -3,7 +3,15 @@ import { browserHistory } from 'react-router'
 import $ from 'jquery';
 
 import Model from '../Model'
-import { Wrapper, ModelWrapper, Img, Nav, Menu, LoginButton, Container } from './Style'
+import { Wrapper,
+     ModelWrapper,
+     SaveButton, 
+     EditButton,
+     Img, 
+     Nav, 
+     Menu, 
+     LoginButton, 
+     Container } from './Style'
 import Images from '../../themes/images'
 
 class Navigation extends Component {
@@ -39,13 +47,16 @@ class Navigation extends Component {
     } 
     
     render() {
+        const { landing, save, edit } = this.props;
         return (
             <Wrapper>
-                <ModelWrapper landing={this.props.landing}>
+                <ModelWrapper landing={landing}>
                     <Model />
                 </ModelWrapper>
+                <SaveButton save={save}>Save for later</SaveButton>
+                <EditButton edit={edit}>Edit profile</EditButton>
                 { !this.state.isActive ? 
-                    <Menu onClick={this.toggleNavigation}/> :  <Img onClick={this.toggleNavigation} src={Images.xButton} alt="" style={{width:'42px'}}/>
+                    <Menu save={save} edit={edit} onClick={this.toggleNavigation}/> :  <Img onClick={this.toggleNavigation} src={Images.xButton} alt="" style={{width:'42px'}}/>
                 }                                             
                 <Nav className={this.state.isActive ? "active" : ""} >
                     <li><a onClick={() => this.navigationPage('/home')}>Home</a></li>
@@ -55,7 +66,7 @@ class Navigation extends Component {
                     <li><a onClick={() => this.navigationPage('/')}>LinkedIn</a></li>
                     <li><a onClick={() => this.navigationPage('/')}>Facebook</a></li>
                 </Nav>
-                <Container>
+                <Container save={save} edit={edit}>
                     <LoginButton />
                 </Container>                                          
             </Wrapper>

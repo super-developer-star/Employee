@@ -11,5 +11,5 @@ body {
     margin: 0 !important;
     padding: 0;
     font-family: 'NudistaLight';
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
   }

@@ -30,8 +30,7 @@ export const FlexWrapper = styled.div`
     @media(max-width:392px){
         margin-top: 0;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column;        
     }
 `
 
@@ -99,6 +98,9 @@ export const VerticalArrow = styled.img`
     }
     @media(min-width:393px) and (max-width:767px){
         width: 8vw;
+    }
+    @media(max-width:392px){
+        align-self: center;
     }
 `
 export const Content = styled.div`

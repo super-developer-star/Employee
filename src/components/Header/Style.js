@@ -14,9 +14,6 @@ export const Wrapper = styled.div`
         ${props => props.percent ? 'padding-bottom: 40px;justify-content: center;align-items: center;'
             :''}
     }
-    @media(max-width:462px){
-        margin-left: -17px;
-    }
 `
 export const ModelWrapper = styled.div`
     display: none;

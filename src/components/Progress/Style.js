@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    ${props =>props.save ? 'margin-left:80px; @media(max-width:992px){margin-left:0;}':''}    
     @media(max-width:767px){
         position: absolute;        
         margin-top: 65px;
@@ -15,6 +15,9 @@ export const Fraction = styled.div`
 
     @media(max-width:1472px){
         margin: 0 3vw 0 -5vw;
+    }
+    @media(max-width:592px){
+        margin: 0 3vw 0 0;
     }
 `
 export const Number = styled.div`
@@ -65,6 +68,9 @@ export const ProgressBar = styled.div`
     }
     @media(max-width:767px){
         width: 40vw;
+    }
+    @media(max-width:592px){
+        width: 72vw;
     }
 `
 export const ActiveBar = styled.div`

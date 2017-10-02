@@ -3,19 +3,17 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 460 400" style="enable-background:new 0 0 460 400;" xml:space="preserve">
 <style type="text/css">
+	@font-face {
+		font-family: 'NudistaLight';
+		src: url(../fonts/NudistaLight.otf);
+	}
 	.st0{fill:#333333;}
 	.st1{font-family:'NudistaLight';}
 	.st2{font-size:24px;}
 	.st3{font-size:36px;}
 	.st4{fill:none;stroke:#333333;stroke-miterlimit:10;}
-	@font-face {
-		font-family: 'NudistaLight';
-		src: url('../fonts/NudistaLight.otf') format('opentype');
-		font-weight: normal;
-		font-style: normal;
-	}
 </style>
-<text transform="matrix(1 0 0 1 198.4045 80.5999)" class="st0 st1 st2" style="font-family:'NudistaLight'">Talent</text>
+<text transform="matrix(1 0 0 1 198.4045 80.5999)" class="st0 st1 st2">Talent</text>
 <text transform="matrix(1 0 0 1 160.3052 372.8331)" class="st0 st1 st3">Employer</text>
 <polyline class="st4" points="15,70 230,285 445,70 "/>
 <rect x="220.7" y="299.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -150.7813 252.9939)" class="st4" width="18.6" height="18.6"/>

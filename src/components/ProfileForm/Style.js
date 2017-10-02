@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    margin: 90px auto;
+    margin: 35px auto 0;
     max-width: 700px;
     text-align: center;
 `
 export const FieldWrapper = styled.div`
-    margin: 90px 0;
+    // margin: 90px 0;
 `
 export const SubHeading = styled.p`
     font-size:32px; 
@@ -27,12 +27,16 @@ export const SubHeading = styled.p`
     }
 `
 export const ButtonWrapper = styled.div`
-    margin: 15px 0;
+    margin: 40px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    @media(max-width:592px){
+        margin: 40px 10% 0;
+        width: 80%;
+    }
 `
 
 export const Button = styled.label`
@@ -60,10 +64,10 @@ export const Button = styled.label`
         font-size: 15px;
         align-items: center;
         display: flex;
-        height: 35px;
+        // height: 35px;
         justify-content: center;
-        padding: 10px 60px;
-        width: calc(100% * (1/10) - 10px - 1px);
+        padding: 10px 30px;
+        // width: calc(100% * (1/10) - 10px - 1px);
     }
     img {
         width: 15px;

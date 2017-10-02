@@ -147,4 +147,7 @@ export const Arrow = styled.div`
         }
         
     }
+    @media(max-width:767px){
+        display: none;
+    }
 `

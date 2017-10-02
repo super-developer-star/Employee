@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
-    @media(max-width:462px){
+    @media(max-width:592px){
         margin-right: -15px;
     }
 `
@@ -15,6 +15,42 @@ export const ModelWrapper = styled.div`
         display:none;
     }
 `
+export const SaveButton = styled.a`
+    ${props =>props.save ? '':'display:none;'}
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 30px;
+    background-color: transparent;
+    margin-right: 12px;
+    @media(max-width:992px){
+        margin-right: 0;
+    }
+    @media(max-width:462px){
+        padding: 7px 20px;
+    }
+    @media(max-width:392px){
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+`
+export const EditButton = styled.a`
+    ${props =>props.edit ? '':'display:none;'}
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 30px;
+    background-color: transparent;
+    margin-right: 12px;
+    @media(max-width:462px){
+        padding: 7px 20px;
+    }
+    @media(max-width:392px){
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+`
+
 export const Menu = styled.div`
     background: url(${Images.hambugerButton});
     background-size: cover;
@@ -24,6 +60,12 @@ export const Menu = styled.div`
     &:hover {
         background: url(${Images.hoverMenu});
         cursor: pointer;
+    }
+    @media(max-width:992px){
+        ${props =>props.save? 'display:none':''}        
+    }
+    @media(max-width:492px){
+        ${props =>props.edit? 'display:none':''}
     }
     @media(max-width:392px){
         margin-right: 5px;
@@ -106,5 +148,11 @@ export const Container = styled.div`
             background-size: cover;
             margin-left: -9px;
         }
-    }    
+    }  
+    @media(max-width:992px){
+        ${props =>props.save? 'display:none':''}      
+    }  
+    @media(max-width:492px){
+        ${props =>props.edit? 'display:none':''}
+    }
 `

@@ -7,16 +7,22 @@ export const Content = styled.div`
 `
 
 export const Heading = styled.h1`
-    margin-top: 90px;
+    margin: 90px 0;
     font-size: 65px;        
     font-weight: 400;    
 
     @media(max-width: 1023px){ font-size: 55px;}
     @media(max-width: 767px){ font-size: 45px;}
-    @media(max-width: 462px){ font-size: 35px; font-weight: 700}    
+    @media(max-width:592px){
+        margin: 15.2vw auto 10vw;
+    }
+    @media(max-width: 462px){ font-size: 35px; font-weight: 700}  
+    @media(max-width:392px){
+        margin: 60px auto 40px;
+    }  
 `
 export const FieldWrapper = styled.div`
-    margin: 70px auto;
+    margin: 35px auto 0;
     max-width: 700px;
     text-align: center;
     @media(max-width: 767px){ margin: 80px auto;}
@@ -69,10 +75,10 @@ export const Button = styled.a`
         font-size: 15px;
         align-items: center;
         display: flex;
-        height: 35px;
+        // height: 35px;
         justify-content: center;
-        padding: 10px 60px;
-        width: calc(100% * (1/10) - 10px - 1px);
+        // padding: 10px 60px;
+        // width: calc(100% * (1/10) - 10px - 1px);
     }
 `
 export const Form = styled.div`    
@@ -99,9 +105,9 @@ export const Form = styled.div`
             font-size:17px
         }
     }
-    @media(max-width: 392px){         
+    @media(max-width: 592px){         
         div {
-            ${props =>props.add ? 'width: 100% !important;':'width: 70vw !important;'}                
+            ${props =>props.add ? 'width: 100% !important;':'width: 80% !important;'}                
         }
     }
 `
@@ -113,17 +119,17 @@ export const UnderLine = styled.hr`
     @media(max-width: 767px){    
         ${props =>props.add ? 'width: 100%;':'width: 60%;'}
     }
-    @media(max-width: 392px){    
-        ${props =>props.add ? 'width: 100%;':'width: 70vw;'}
+    @media(max-width: 592px){    
+        ${props =>props.add ? 'width: 100%;':'width: 80%;'}
     }
 `
 export const TagWrapper = styled.div`
-    margin: 70px auto;
+    margin: 70px auto 35px;
     max-width: 700px;
     text-align: center;
 `
 export const Navigation = styled.div`
-    margin: 100px 0 110px 0;
+    margin: 60px 0 110px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +157,7 @@ export const NavigationButton = styled.a`
     }
     @media(max-width:392px){
         font-size: 20px;
-        margin: 0 0;
+        ${props =>props.prev? 'padding: 10px 15px':'padding: 10px 10vw;'}
     }
     &:hover {
         cursor: pointer;
@@ -182,10 +188,7 @@ export const TextFieldWrapper = styled.div`
         width: 50%;
     }
     @media(max-width: 592px){
-        width: 60%
-    }
-    @media(max-width: 392px){
-        width: 70vw;
+        width: 80%
     }
 `
 export const AddButton = styled.a`

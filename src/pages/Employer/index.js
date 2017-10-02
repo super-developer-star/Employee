@@ -66,7 +66,7 @@ class Employer extends Component {
         const { percentage, vacancies, locations } = this.state;
         return (
             <Wrapper>
-                <Header />
+                <Header edit/>
                 <Heading>CoolWorks</Heading>
                 <UserWrapper>
                     <Avatar src={Images.user} alt="user" />

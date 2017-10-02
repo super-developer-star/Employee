@@ -21,10 +21,10 @@ export const Wrapper = styled.div`
         font-size: 15px;
         align-items: center;
         display: flex;
-        height: 35px;
+        // height: 35px;
         justify-content: center;
-        padding: 10px 60px;
-        width: calc(100% * (1/10) - 10px - 1px);
+        // padding: 10px 60px;
+        // width: calc(100% * (1/10) - 10px - 1px);
     }
 `
 export const Icon = styled.img`
