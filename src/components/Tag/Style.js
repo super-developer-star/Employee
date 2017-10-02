@@ -29,5 +29,5 @@ export const Wrapper = styled.div`
 `
 export const Icon = styled.img`
     padding-left: 15px;
-    width: 18px;
+    width: 13px;
 `

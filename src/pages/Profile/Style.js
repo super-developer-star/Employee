@@ -13,7 +13,7 @@ export const Heading = styled.h1`
 
     @media(max-width: 1023px){ font-size: 55px;}
     @media(max-width: 767px){ font-size: 45px;}
-    @media(max-width: 462px){ font-size: 35px; font-weight: 700;}    
+    @media(max-width: 462px){ font-size: 35px; font-weight: 700}    
 `
 export const FieldWrapper = styled.div`
     margin: 70px auto;
@@ -82,7 +82,7 @@ export const Form = styled.div`
     div {
         width: 450px !important;
         font-size: 23px !important;
-        font-family: 'nudista-web', sans-serif !important;
+        font-family: 'NudistaLight' !important;
     }
     label {
         font-size: 23px;        
@@ -151,6 +151,7 @@ export const NavigationButton = styled.a`
     }
     @media(max-width:392px){
         font-size: 20px;
+        margin: 0 0;
     }
     &:hover {
         cursor: pointer;
@@ -216,7 +217,7 @@ export const IconWrapper = styled.div`
             margin: 0 1vw;
         }
         @media(max-width:392px){
-            width: 50px !important;
+            width: 16.5vw !important;
             margin: 0;
         }
     }

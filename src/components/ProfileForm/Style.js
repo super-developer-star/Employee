@@ -66,7 +66,7 @@ export const Button = styled.label`
         width: calc(100% * (1/10) - 10px - 1px);
     }
     img {
-        width: 18px;
+        width: 15px;
         margin-left: 15px;
     }
 `

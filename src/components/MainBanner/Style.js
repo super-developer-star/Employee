@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     @media(max-width: 767px) {
         padding: 85px 0 0 0;
     }
+    
 `
 
 export const Content = styled.div`
@@ -17,8 +18,14 @@ export const Content = styled.div`
     padding: 15px 0 150px 0;    
 
     @media(max-width:767px){
-        background-size: 60vw;
+        background-size: 65vw;
         background-position: center center;
+    }
+    @media(max-width:592px){
+        background-size: 385px;        
+    }
+    @media(max-width:592px){
+        background-size: 95vw;        
     }
 `
 
@@ -52,7 +59,7 @@ export const Text = styled.p`
     }
     @media(max-width: 767px){
         font-size: ${props => props.smaller ? '13px' : '20px'};
-        margin: 0 25px 0 20px;
+        margin:  ${props => props.smaller ? '': '0 25px 0 20px'};
         line-height:30px;
     }
     @media(max-width: 392px){
@@ -76,7 +83,8 @@ export const SignUpLink = styled.a`
     -webkit-transition: 0.5s;
 
     &:hover, &:focus {
-        opacity: 0.85;
+        background: #333;
+        color: #fff;
     }
     @media(min-width: 1024px) {
         font-size: 28px;
@@ -97,4 +105,46 @@ export const Image = styled.img`
     margin-right: 5px;
     position: relative;
     top: 5px;
+`
+export const Arrow = styled.div`
+
+    img {
+        width:50px;
+        position: absolute;
+        margin-left: -25px;
+        bottom: 0;
+        animation: scrolldown 2s infinite;
+    }
+
+    @keyframes scrolldown {
+        0% {            
+            bottom: 0px;
+            transform: scale(0.95, 0.95);
+        }
+        10% {            
+            bottom: 3px;
+            transform: scale(0.9, 0.9);
+        }
+        20% {            
+            bottom: 6px;
+            transform: scale(0.87, 0.87);
+        }
+        30% {            
+            bottom: 9px;
+            transform: scale(0.85, 0.85);
+        }
+        40% {            
+            bottom: 12px;
+            transform: scale(0.82, 0.82);
+        }
+        50% {            
+            bottom: 15px;
+            transform: scale(0.8, 0.8);
+        }       
+        100% {            
+            bottom: 0px;
+            transform: scale(1, 1);
+        }
+        
+    }
 `

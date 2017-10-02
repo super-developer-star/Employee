@@ -11,7 +11,7 @@ export const Heading = styled.h1`
 
     @media(max-width: 1023px){ font-size: 55px;}
     @media(max-width: 767px){ font-size: 45px;}
-    @media(max-width: 392px){ font-size: 35px; font-weight: 700;}
+    @media(max-width: 392px){ font-size: 11.5vw; font-weight:700;}
 `
 export const ButtonWrapper = styled.div`
     ${props =>props.signup ? 'margin: 75px 0 50px;':'margin: 75px 0 35px;'}
@@ -40,19 +40,20 @@ export const SocialButton =styled.div`
     &:hover { cursor: pointer;}
 
     @media(max-width:1023px){        
-        font-size: 22px;
+        font-size: 2.5vw;
         height: 60px;
-        width: 350px;
+        width: 39vw;
         margin: 0 2vw;
         ${props =>props.google? 'img{width:45px}':'img{width:35px;}'}
     }
     @media(max-width:767px){
+        font-size: 20px;
         width: 350px;
         margin-bottom: 30px;
     }
     @media(max-width: 392px){
          font-size: 17px; 
-         width: 265px;
+         width: 90vw;
     }
 `
 export const CircleButton = styled.div`
@@ -83,7 +84,7 @@ export const Form = styled.div`
     div {
         width: 815px !important;
         font-size: 23px !important;
-        font-family: 'nudista-web', sans-serif !important;
+        font-family: 'NudistaLight' !important;
     }
     label {
         font-size: 23px; 
@@ -103,7 +104,7 @@ export const Form = styled.div`
         }
     }
     @media(max-width: 392px){
-        div {
+        div {            
             width: 80% !important;
             font-size: 20px !important;
         }
@@ -127,10 +128,10 @@ export const UnderLine = styled.hr`
     }
 `
 export const Img = styled.img` 
-    margin-top: 20px;
-    ${props =>props.empty ? 'width:40px;':''}
+    margin-top: 30px;
+    width: 30px;
     @media(max-width: 392px){ 
-       ${props =>props.empty ? 'width:40px;':'width:10%;'}
+       width: 8vw;
     }
 `
 export const SignUpButton = styled.a`

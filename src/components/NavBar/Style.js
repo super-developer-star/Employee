@@ -1,22 +1,39 @@
 import styled from 'styled-components'
+import Images from '../../themes/images'
 
 export const Wrapper = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
+    @media(max-width:462px){
+        margin-right: -15px;
+    }
 `
-export const Button = styled.button`
-    ${props =>props.profile? 'border: 1px solid white; border-radius: 50%;' : 'border: none; height:62px !important; width: 62px !important; !important;'};
-    background: transparent;
-    height: 40px;
-    justify-content: center;
-    margin: 0 5px;
-    position: relative;
+export const ModelWrapper = styled.div`
+    ${props =>props.landing ? '' : 'display: none;'}
+    @media(max-width:700px){
+        display:none;
+    }
+`
+export const Menu = styled.div`
+    background: url(${Images.hambugerButton});
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    &:hover {
+        background: url(${Images.hoverMenu});
+        cursor: pointer;
+    }
+    @media(max-width:392px){
+        margin-right: 5px;
+    }
+`
+export const Img = styled.img`
     z-index: 3;
-    width: 40px;
-    
-    &:hover, &:focus {        
-        cursor: pointer;    
+    margin-right: 15px;
+    &:hover {
+        cursor: pointer;
     }
 `
 export const Nav = styled.ul`
@@ -45,13 +62,49 @@ export const Nav = styled.ul`
         a {
             color: #fff;
             text-decoration: none;
-            transition: 0.5s;
-            -webkit-transition: 0.5s;
+            transition: opacity 0.5s;
+            -webkit-transition: opacity 0.5s;
 
             &:hover, &:focus {
                 cursor: pointer;
-                color: #9e8c8c;
+                opacity: 0.5
             }
         }
     }
+    @media(max-width:392px){
+        font-size: 8.2vw;
+    }
+`
+
+export const LoginButton = styled.div`
+    background: url(${Images.Profile});
+    background-size: cover;
+    width: 18px;
+    height: 25px;
+    &:hover {
+        margin-left: 1px;
+        cursor: pointer;
+    }
+`
+export const Container = styled.div`
+    border: 1px solid #fff;
+    border-radius: 50px;
+    height: 38px;
+    width: 38px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border: none;
+        margin-left: 2px;
+        div {
+            background: url(${Images.loginHover});
+            width: 51px;
+            height: 51px;
+            background-size: cover;
+            margin-left: -9px;
+        }
+    }    
 `

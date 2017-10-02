@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Toggle from 'material-ui/Toggle';
+import Switch from 'react-toggle-switch'
+import "../../../node_modules/react-toggle-switch/dist/css/switch.min.css" 
+import { RangeSlider } from 'reactrangeslider';
 
 import CircularProgressbar from '../../components/CircularProgressbar';
 import Header from '../../components/Header';
@@ -18,29 +19,11 @@ import {
     BgCircle,
     Detail,
     TagWrapper,
-    FieldWrapper } from './Candidate.style';
+    FieldWrapper,
+    Slider,
+    Info,
+    Contact } from './Candidate.style';
 import Images from '../../themes/images';
-
-const styles = {
-    thumbOff: {
-      backgroundColor: '#4cbf69',
-      width: '35px',
-      height: '35px',
-      marginTop: '3px'
-    },
-    trackOff: {
-      backgroundColor: '#c5eac5',
-      height: '35px',
-      width: '70px'
-    },
-    thumbSwitched: {
-      backgroundColor: '#d8f1d8',
-      marginTop: '3px'
-    },
-    trackSwitched: {
-      backgroundColor: '#c5eac5',      
-    },
-  };
 
 class TagList extends Component {
     constructor(props){
@@ -74,14 +57,31 @@ class Candidate extends Component {
         super();
         this.state = {
             percentage: 65,
+            switched: false,
             opportunities: ["Backend Developer", "Frontend Developer"],
             skills: ["HTML5", "CSS", "Angular", "Drupal"],
-            locations: ["Copenhagen", "Stockholm"]
+            locations: ["Copenhagen", "Stockholm"],
+            value : {
+                start: 30,
+                end: 80
+            }
         }
     }
 
+    toggleSwitch = () => {
+        this.setState(prevState => {
+            return {
+                switched: !prevState.switched
+            };
+        });
+    };
+
+    onChange = (value) => {
+        this.setState({ value });
+    }
+
     render() {
-        const { percentage, opportunities, skills, locations } = this.state;
+        const { percentage, opportunities, skills, locations, value } = this.state;
         return (
             <Wrapper>
                 <Header />
@@ -92,15 +92,8 @@ class Candidate extends Component {
                         <h1>Christian Henriksen</h1>
                         <p>Engineering</p>                        
                         <ToggleWrapper>
-                            <p>Active</p>
-                            <MuiThemeProvider>
-                                <Toggle                                                      
-                                    thumbStyle={styles.thumbOff}
-                                    trackStyle={styles.trackOff}
-                                    thumbSwitchedStyle={styles.thumbSwitched}
-                                    trackSwitchedStyle={styles.trackSwitched}                            
-                                />
-                            </MuiThemeProvider>
+                            <p>Active</p>                            
+                                <Switch onClick={this.toggleSwitch} on={this.state.switched}/>                            
                             <p>Passive</p>
                         </ToggleWrapper>                        
                     </User>
@@ -134,17 +127,17 @@ class Candidate extends Component {
                 <FieldWrapper>
                     <h1>Social media</h1>
                     <div>
-                        <img src={Images.github} alt="git" />
-                        <p>github.com/christianhenriksen</p>
-                    </div>
-                    <div>
-                        <img src={Images.linkedin} alt="linkedin" />
-                        <p>linkedin.com/in/christianhenriksen</p>
-                    </div>
-                    <div>
-                        <img src={Images.facebook} alt="facebook" />
-                        <p>facebook.com/christianhenriksen</p>
-                    </div>
+                        <div>
+                            <img src={Images.github} alt="git" />
+                            <img src={Images.linkedin} alt="linkedin" />
+                            <img src={Images.facebook} alt="facebook" />                            
+                        </div>
+                        <div>
+                            <p>github.com/christianhenriksen</p>
+                            <p>linkedin.com/in/christianhenriksen</p>
+                            <p>facebook.com/christianhenriksen</p>
+                        </div>
+                    </div>                                                        
                 </FieldWrapper>                
                 <TagWrapper>
                     <h1>Opportunities I'm interested in</h1>
@@ -158,6 +151,29 @@ class Candidate extends Component {
                     <h1>Locations I'm interested in</h1>
                     <TagList data={locations} />
                 </TagWrapper>
+                <Slider>
+                    <h1>Salary range</h1>
+                    <RangeSlider
+                        step={1}
+                        value={value}
+                        min={0}
+                        max={100}
+                        onChange={this.onChange}                        
+                    /> 
+                    <div>
+                        <a>eur {value.start}.000</a>    
+                        <a>eur {value.end}.000</a>
+                    </div>               
+                </Slider>
+                <Info>
+                    <h1>Additional info</h1>
+                    <p>
+                    You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+                    </p>
+                </Info>
+                <Contact>
+                    <a>Contact my agent</a>
+                </Contact>
                 <Footer />
             </Wrapper>
         )

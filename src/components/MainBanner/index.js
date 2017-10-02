@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 
 import Images from '../../themes/images'
-import { Wrapper, Content, Text, Heading, SignUpLink, Image } from './Style'
+import { Wrapper, Content, Text, Heading, SignUpLink, Image, Arrow } from './Style'
 
 export default () => {
   return (
@@ -15,6 +15,7 @@ export default () => {
           <Link to="/signup"><SignUpLink>Go</SignUpLink></Link>
           <Text smaller><Image src={ Images.clock } />2 min. Sign up - and it's free for talent (forever)</Text>
       </Content>
+          <Arrow><img src={Images.arrowDown} alt="arrow" /></Arrow>
     </Wrapper>
   )
 }

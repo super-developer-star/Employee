@@ -18,7 +18,7 @@ export const Input = styled.div`
 export const AddButton = styled.div`
     border: 1px solid #a9a9a9;
     font-size: 17px;
-    color: #c7c2c2;
+    color: #777;
     border-radius: 50px;
     padding: 10px 30px;  
     margin: 7px 0; 
@@ -26,8 +26,11 @@ export const AddButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    
     &:hover {
         cursor: pointer;
+        background-color: #ebf1f0;
     }
 `

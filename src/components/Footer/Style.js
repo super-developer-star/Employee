@@ -3,28 +3,33 @@ import Images from '../../themes/images'
 
 export const Container = styled.footer`
     background: url(${Images.triangle}) no-repeat center center;
-    background-size: contain;
+    background-size: cover;
     color: #333;
     margin: auto;
-    max-width: 800px;
-    padding: 25px 0 100px;
+    max-width: 800px;    
     text-align: center;
+    height: 400px;
 
     @media(min-width: 768px) {
-        padding: 150px 0 70px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    @media(max-width: 392px){
-        padding: 100px 0 100px;
-        margin-top: -35px;
-    }
+    @media(max-width:392px){
+        height: 300px;
+    }    
 `
 
-export const Logo = styled.h3`
-    font-size: 32px;
-    font-weight: 300;
-    span {
-        font-weight: 600
+export const Logo = styled.img`
+    width: 300px;
+    margin-top: 70px;
+    @media(max-width:767px){
+        width: 45vw;
     }
+    @media(max-width:392px){
+        width: 50vw;        
+    }    
 `
 
 export const List = styled.ul`  
@@ -37,27 +42,30 @@ export const List = styled.ul`
         display: flex;
         list-style: none;
         justify-content: center;
-        margin: auto;
-        padding: 0;
+        margin-top: 45px;        
     }
 `
 
 export const MobileList = styled.ul`
+    display: none; 
     @media (max-width: 767px) {
         display: flex;
         flex-direction: column;
         list-style: none;
         justify-content: center;
-        margin: auto;
+        margin-top: 50px;
         padding: 0;
         display: block;
     }
-        display: none;   
+    @media(max-width:392px){
+        margin-top: 35px;
+    }      
 `
 
 export const ListItems = styled.li`
     padding: 5px 20px;
     ${props =>props.social ? 'padding: 5px 5px; img { width: 50px } @media(max-width: 767px){padding: 20px 5px;}': ''}
+    ${props =>props.linkedin ? 'margin-left:20px':''}
 `
 
 export const Link = styled.a`
@@ -72,6 +80,9 @@ export const Link = styled.a`
         color: #777;
     }
     @media(max-width: 767px) {
-        ${props =>props.social ? '':'margin: 5px 15px; font-size: 17px;'}
+        ${props =>props.social ? '':'margin: 5px 15px; font-size: 20px;'}
+    }
+    @media(max-width: 392px) {
+        ${props =>props.social ? '':'margin: 5px 15px; font-size: 5vw;'}
     }
 `

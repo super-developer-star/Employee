@@ -1,26 +1,38 @@
 import styled from 'styled-components'
 
 export const Heading = styled.a`
-    color: #fff;
-    font-size: 36px;
-    font-weight: 300;
+    
     padding: 50px 0;
-    text-decoration: none;
-
-    span {
-        font-weight: 700;
-    }
-    &:hover, &:focus {
-        cursor: pointer;
-        span {
-            color: #7e5d81;
-            transition: 5s ease all;
-        }
-    }
     @media(max-width:767px){
         margin-right: auto;
+    }     
+`
+export const Img = styled.img`
+    width: 210px;
+    @media(max-width:392px){
+        width: 54vw;
     }
-    @media(max-width:462px){
-        font-size: 30px;
+
+    &.logo {
+        &:hover {
+            cursor: pointer;
+        }
     }
+    position: relative;
+    top: 0px;
+
+    &.animation { 
+        animation: down 0.3s 1; 
+    }    
+    @keyframes down {
+        0% {
+            top: 0px;
+            opacity: 1;
+        }
+        100% {
+            top: 10px;
+            opacity: 0;
+        }
+    }                  
+    
 `

@@ -12,13 +12,13 @@ class Footer extends React.Component {
     render() {
         return (
             <Container>
-                <Logo>agentify<span>.me</span></Logo>
+                <Logo src={Images.logo_footer} alt="footer" />
                 <List>
                     <ListItems><Link onClick={() =>this.gotoPage('/home')}>Home</Link></ListItems>
                     <ListItems><Link href="">About</Link></ListItems>
                     <ListItems><Link href="">Contact</Link></ListItems>
                     <ListItems><Link href="">Privacy and GDPR</Link></ListItems>
-                    <ListItems social><Link href=""><img src={Images.linkedin} alt="linkedin"/></Link></ListItems>
+                    <ListItems social linkedin><Link href=""><img src={Images.linkedin} alt="linkedin"/></Link></ListItems>
                     <ListItems social><Link href=""><img src={Images.facebook} alt="facebook"/></Link></ListItems>
                 </List>
                 <MobileList>

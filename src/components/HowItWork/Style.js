@@ -16,10 +16,8 @@ export const Wrapper = styled.div`
     @media (max-width: 767px) {
         font-size: 16px;
         line-height: 25px;
-    }
-    @media(max-width:392px){
         padding: 75px 20px 0;
-    }
+    }    
 `
 
 export const FlexWrapper = styled.div`
@@ -31,6 +29,9 @@ export const FlexWrapper = styled.div`
     }
     @media(max-width:392px){
         margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `
 
@@ -78,26 +79,26 @@ export const Img = styled.div`
     }
 `
 export const RightArrow = styled.img`
-    width: 65px;
+    width: 70px;
 
     @media(min-width:1024px) and (max-width:1300px){
-        width: 4.5vw;
+        width: 5.5vw;
     }
     @media(min-width:768px) and (max-width:1023px){
-        width: 5.5vw;
+        width: 6.5vw;
     }
     @media(max-width:767px){
        display: none;
     }
 `
 export const VerticalArrow = styled.img`
-    width: 7vw;
+    width:11vw;
 
     @media(min-width:768px){
         display: none;
     }
-    @media(min-width:392px) and (max-width:767px){
-        width: 5vw;
+    @media(min-width:393px) and (max-width:767px){
+        width: 8vw;
     }
 `
 export const Content = styled.div`
