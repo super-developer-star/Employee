@@ -26,7 +26,8 @@ const images = {
     loginHover: '/assets/svgs/login_hover.svg',
     arrowDown: '/assets/svgs/arrow_down.svg',
     logo_footer: '/assets/svgs/logo_footer.svg',
-    logo_home: '/assets/svgs/logo_home.svg'
+    logo_home: '/assets/svgs/logo_home.svg',
+    aboutUs: '/assets/images/about.png'
 }
 
 export default images;

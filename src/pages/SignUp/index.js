@@ -75,12 +75,12 @@ class SignUp extends Component {
             }
         } 
         if(name !== 'error' && email !== 'error' && place !== 'error' && isName !== 'error' && isEmail !== 'error' && isPlace !== 'error'){
-            let credential = {};
-            credential = {
-                Name: isName,
-                Email: isEmail,
-                Place: isPlace
-            }      
+            // let credential = {};
+            // credential = {
+            //     Name: isName,
+            //     Email: isEmail,
+            //     Place: isPlace
+            // }      
             browserHistory.push('/profile')
         }   else if(!isRequired){
                 this.setState({

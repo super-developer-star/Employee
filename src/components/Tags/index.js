@@ -57,7 +57,7 @@ class Tags extends Component {
                             <TextField   
                                 ref={ (input) => { this.tagInput = input; }} 
                                 onKeyDown={this.onInputTag}                                                                                      
-                                onBlur={this.showHideTagInput}
+                                
                             />              
                         </MuiThemeProvider>
                     </Input>

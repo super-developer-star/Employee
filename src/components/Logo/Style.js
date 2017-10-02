@@ -9,8 +9,8 @@ export const Heading = styled.a`
 `
 export const Img = styled.img`
     width: 210px;
-    @media(max-width:392px){
-        width: 54vw;
+    @media(max-width:492px){
+        width: 45.5vw;
     }
 
     &.logo {

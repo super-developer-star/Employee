@@ -8,10 +8,13 @@ export const Input = styled.div`
     div {
         width: 150px !important;
         margin-left: 5px; 
+        input {
+            left: 5px;
+        }
         div {
             hr:last-child {
                 border-bottom: 1px solid #c7c2c2 !important;                
-            }
+            }            
         }
     }
 `

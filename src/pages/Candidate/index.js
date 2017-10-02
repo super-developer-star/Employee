@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Switch from 'react-toggle-switch'
 import "../../../node_modules/react-toggle-switch/dist/css/switch.min.css" 
 import { RangeSlider } from 'reactrangeslider';
+import { browserHistory } from 'react-router';
 
 import CircularProgressbar from '../../components/CircularProgressbar';
 import Header from '../../components/Header';
@@ -22,7 +23,7 @@ import {
     FieldWrapper,
     Slider,
     Info,
-    Contact } from './Candidate.style';
+    Contact } from './Style';
 import Images from '../../themes/images';
 
 class TagList extends Component {
@@ -43,7 +44,7 @@ class TagList extends Component {
         let temp = this.state.tags.slice();
         temp.splice(index, 1);
         this.setState({ tags: temp });
-    }
+    }   
 
     render() {
         return (
@@ -78,6 +79,10 @@ class Candidate extends Component {
 
     onChange = (value) => {
         this.setState({ value });
+    }
+
+    pageNavigation = (path) => {
+        browserHistory.push(path)
     }
 
     render() {
@@ -171,8 +176,8 @@ class Candidate extends Component {
                     You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
                     </p>
                 </Info>
-                <Contact>
-                    <a>Contact my agent</a>
+                <Contact >
+                    <a onClick={() => this.pageNavigation('/employer')}>Contact my agent</a>
                 </Contact>
                 <Footer />
             </Wrapper>
