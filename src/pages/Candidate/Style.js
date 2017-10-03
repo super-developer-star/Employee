@@ -261,6 +261,8 @@ export const FieldWrapper = styled.div`
         }
     }
     @media(max-width:592px){  
+        margin-left: 8vw;
+        max-width: 80vw;  
         margin-top: 10vw;      
         h1 {
             font-size: 6vw;            
@@ -282,7 +284,9 @@ export const TagWrapper = styled.div`
         }
     }
     @media(max-width:592px){  
-        margin-top: 10vw;      
+        margin-top: 10vw;  
+        max-width: 85vw;
+        margin-left: 8vw;
         h1 {
             font-size: 6vw;            
         }
@@ -399,7 +403,9 @@ export const Slider = styled.div`
         }
     }
     @media(max-width:592px){  
-        margin-top: 10vw;      
+        margin-top: 10vw;  
+        margin-left: 8vw;
+        max-width: 80vw;    
         h1 {
             font-size: 6vw;            
         }
@@ -432,7 +438,9 @@ export const Info = styled.div`
         }
     }
     @media(max-width:592px){  
-        margin-top: 10vw;      
+        margin-top: 10vw;  
+        margin-left: 8vw;
+        max-width: 80vw;      
         h1 {
             font-size: 6vw;            
         }
@@ -466,5 +474,8 @@ export const Contact = styled.div`
     }
     @media(max-width:1124px){
         margin-left: 12vw;
+    }
+    @media(max-width:592px){
+        margin-left: 8vw;
     }
 `

@@ -33,6 +33,9 @@ export const SaveButton = styled.a`
         padding: 5px 15px;
         font-size: 12px;
     }
+    &:hover {
+        cursor: pointer;
+    }
 `
 export const EditButton = styled.a`
     ${props =>props.edit ? '':'display:none;'}
@@ -48,6 +51,9 @@ export const EditButton = styled.a`
     @media(max-width:392px){
         padding: 5px 15px;
         font-size: 12px;
+    }
+    &:hover {
+        cursor: pointer;
     }
 `
 
@@ -119,7 +125,7 @@ export const Nav = styled.ul`
 `
 
 export const LoginButton = styled.div`
-    background: url(${Images.Profile});
+    background: url(${Images.login});
     background-size: cover;
     width: 18px;
     height: 25px;

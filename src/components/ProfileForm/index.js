@@ -22,7 +22,7 @@ class ProfileForm extends React.Component {
                                         <Button active={values.mobile}><Checkbox field="mobile" value="mobile"/>Mobile</Button>
                                         <Button active={values.devops}><Checkbox field="devops" value="devops"/>DevOps and Tooling</Button>
                                         <Button active={values.qa}><Checkbox field="qa" value="qa"/>QA</Button>
-                                        <Button active={values.other}><Checkbox field="other" value="other"/>other</Button>
+                                        <Button active={values.other}><Checkbox field="other" value="other"/>Other</Button>
                                     </ButtonWrapper>
                                 </FieldWrapper>
                             }

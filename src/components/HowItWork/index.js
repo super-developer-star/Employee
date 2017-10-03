@@ -9,12 +9,12 @@ export default class CallToAction extends Component {
           <Heading>How it works</Heading>
           <FlexWrapper>
             <Img>
-              <embed src={Images.talent} alt="" />              
+              <embed src={Images.employer} />              
             </Img>
             <RightArrow src={Images.bRightArrow} alt="" />
             <VerticalArrow src={Images.verticalArrow} alt="" />
             <Img>
-              <embed src={Images.employer} alt=""/>              
+              <embed src={Images.talent}/>              
             </Img>
           </FlexWrapper>
           <FlexWrapper>

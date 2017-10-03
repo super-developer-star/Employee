@@ -29,6 +29,9 @@ export const UserWrapper = styled.div`
     @media(max-width:1023px){
         flex-direction: column;
     }
+    @media(max-width:592px){
+        margin-left: 8vw;
+    }
 `
 export const Avatar = styled.img`
     color: rgb(255, 255, 255);
@@ -53,6 +56,7 @@ export const Avatar = styled.img`
     @media(max-width:592px){
         width: 40vw;
         height: 40vw;
+        margin-right: 8vw;
     }
     @media(max-width:392px){
         width: 50vw;
@@ -187,7 +191,9 @@ export const TagWrapper = styled.div`
         }
     }
     @media(max-width:592px){  
-        margin-top: 10vw;      
+        margin-top: 10vw;    
+        margin-left: 8vw;
+        max-width: 80vw;  
         h1 {
             font-size: 6vw;            
         }
@@ -229,7 +235,9 @@ export const Info = styled.div`
         }
     }
     @media(max-width:592px){  
-        margin-top: 10vw;      
+        margin-top: 10vw;  
+        margin-left: 8vw;
+        max-width: 80vw;    
         h1 {
             font-size: 6vw;            
         }
@@ -282,7 +290,9 @@ export const FieldWrapper = styled.div`
             }
         }
     }
-    @media(max-width:592px){       
+    @media(max-width:592px){    
+        margin-left: 8vw;
+        max-width: 80vw;   
         h1 {
             font-size: 6vw;            
         }
@@ -326,11 +336,15 @@ export const Contact = styled.div`
         }
         @media(max-width: 1023px){ padding: 17px 80px;}
         @media(max-width: 478px){ 
-            padding: 17px 17vw;
+            padding: 17px 19vw;
             font-size: 5vw;
         }
     }
     @media(max-width:1124px){
         margin-left: 12vw;
+    }
+    @media(max-width: 592px){
+        margin-left: 8vw;
+        max-width: 80vw;
     }
 `

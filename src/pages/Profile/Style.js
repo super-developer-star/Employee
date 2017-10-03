@@ -124,12 +124,12 @@ export const UnderLine = styled.hr`
     }
 `
 export const TagWrapper = styled.div`
-    margin: 70px auto 35px;
+    margin: 70px auto 0;
     max-width: 700px;
     text-align: center;
 `
 export const Navigation = styled.div`
-    margin: 60px 0 110px 0;
+    padding: 60px 0 110px 0;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -8,10 +8,11 @@ export const Container = styled.footer`
     margin: auto;
     max-width: 800px;    
     text-align: center;
-    height: 400px;
+    height: 600px;
+    justify-content: center;
 
     @media(min-width: 768px) {
-        height: 400px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -23,12 +24,14 @@ export const Container = styled.footer`
 
 export const Logo = styled.img`
     width: 300px;
-    margin-top: 70px;
+    margin-top: -30px;
     @media(max-width:767px){
         width: 45vw;
+        margin-top: 160px;
     }
     @media(max-width:392px){
-        width: 50vw;        
+        width: 50vw;  
+        margin-top:60px;      
     }    
 `
 

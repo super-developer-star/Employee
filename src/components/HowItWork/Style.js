@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
     @media (min-width: 768px) {
         font-size: 23px;
-        padding: 75px 0;
+        padding: 90px 0 0;
     }
     @media (max-width: 767px) {
         font-size: 16px;
@@ -57,34 +57,35 @@ export const Heading = styled.h2`
 
 export const Img = styled.div`  
 
-    @media (min-width: 1024px) {
-        padding: 0 100px;
-        width: 50%;
+    @media (min-width: 1200px) {        
+        width: calc(50% - 40px);
+        box-sizing: border-box;
     }
-    @media(min-width:768px) and (max-width: 1023px){
+    @media(min-width:768px) and (max-width: 1200px){
         padding: 0 40px;
-        width: 50%
+        width: calc(50% - 4vw);
+        box-sizing: border-box;
+        
     }
-    @media (max-width: 767px) {
-        padding: 0 10px;
-    }
-    img {
+    embed {
+        width: 500px;
+        @media(min-width:768px) and (max-width: 1200px){
+            width: 38vw;
+        }
         @media(max-width:767px){
             width: 60vw;
+            height: 60vw;
         }
         @media(max-width:392px){
             width: 80vw;
+            height: 60vw;
         }
     }
 `
 export const RightArrow = styled.img`
-    width: 70px;
-
-    @media(min-width:1024px) and (max-width:1300px){
-        width: 5.5vw;
-    }
-    @media(min-width:768px) and (max-width:1023px){
-        width: 6.5vw;
+    width: 85px;
+    @media(min-width:768px) and (max-width:1200px){
+        width: 7vw;
     }
     @media(max-width:767px){
        display: none;
