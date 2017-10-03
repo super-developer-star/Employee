@@ -16,7 +16,8 @@ export const Content = styled.div`
     line-height: 31px;
     margin: auto;
     padding: 15px 0 150px 0;    
-
+    filter: grayscale(0);
+    
     @media(max-width:767px){
         background-size: 65vw;
         background-position: center center;
