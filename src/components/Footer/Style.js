@@ -10,6 +10,7 @@ export const Container = styled.footer`
     text-align: center;
     height: 600px;
     justify-content: center;
+    filter: grayscale(0);
 
     @media(min-width: 768px) {
         height: 600px;
