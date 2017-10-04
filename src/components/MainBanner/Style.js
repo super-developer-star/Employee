@@ -106,8 +106,10 @@ export const Image = styled.img`
     margin-right: 5px;
     position: relative;
     top: 5px;
+    
 `
 export const Arrow = styled.div`
+
     @media(max-height:850px){
         img {
             display: none;
@@ -155,4 +157,5 @@ export const Arrow = styled.div`
     @media(max-width:767px){
         display: none;
     }
+        
 `

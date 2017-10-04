@@ -119,7 +119,7 @@ class Submition extends Component {
                     <ProfileForm item={'status'} />
                     <Navigation>
                         <NavigationButton prev onClick={() => this.pageNavigation('/profile/category')}><Img src={Images.leftArrow} alt="left" /></NavigationButton>
-                        <NavigationButton onClick={() => this.pageNavigation('/candidate')}>Submit<Img right src={Images.wRightArrow} alt="right" /></NavigationButton>                       
+                        <NavigationButton onClick={() => this.pageNavigation('/profile/candidate')}>Submit<Img right src={Images.wRightArrow} alt="right" /></NavigationButton>                       
                     </Navigation>
                 </Content>
             </Wrapper>

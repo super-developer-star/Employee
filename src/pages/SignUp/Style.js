@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Images from '../../themes/images'
 
 export const Wrapper = styled.div`  
 `
@@ -26,8 +27,16 @@ export const ButtonWrapper = styled.div`
         align-items: center; 
         ${props =>props.signup ? 'margin: 35px 0 0;':'margin: 50px 0 35px;'}       
     }
+    button {
+        background: transparent !important;
+        outline: none;
+        font-family: 'NudistaLight' !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        width: auto !important;
+    }
 `
-export const SocialButton =styled.div`
+export const GoogleButton =styled.div`
     display: flex;
     align-items: center;
     justify-content: center;    
@@ -36,10 +45,16 @@ export const SocialButton =styled.div`
     width: 400px;
     font-size: 25px;
     border-radius: 50px;
-    ${props =>props.google? 'background-color:#ecebeb; p{color:#333;} img{width:60px}':'p{color:#FFF;} background-color:#3b5998;img{width:45px}'}
-
-    p { margin-left: 5px; font-weight: 700;}
-    img { margin-right: 5px;}
+    background-color:#ecebeb; 
+    p { 
+        margin-left: 5px; 
+        font-weight: 700;
+        color:#333;
+    }
+    img {
+         margin-right: 5px;
+         width:60px;
+    }
 
     &:hover { cursor: pointer;}
 
@@ -48,7 +63,9 @@ export const SocialButton =styled.div`
         height: 60px;
         width: 39vw;
         margin: 0 2vw;
-        ${props =>props.google? 'img{width:45px}':'img{width:35px;}'}
+        img {
+            width:45px;
+        }
     }
     @media(max-width:767px){
         font-size: 20px;
@@ -58,6 +75,52 @@ export const SocialButton =styled.div`
     @media(max-width: 392px){
          font-size: 17px; 
          width: 90vw;
+    }
+`
+export const FacebookButton = styled.div`
+    margin: 0 1.4vw;
+    button {
+        text-align: center;
+        background: url(${Images.facebook1}) no-repeat 45px center #3b5998 !important;
+        background-size: 45px !important;
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        cursor: pointer;        
+        font-size: 25px;                
+        height: 70px;
+        padding-left: 45px;
+        width: 400px !important;
+
+        @media(max-width:1023px){  
+            background: url(${Images.facebook1}) no-repeat 4.4vw center #3b5998 !important; 
+            background-size: 35px !important;  
+            font-size: 2.5vw;
+            height: 60px;
+            width: 39vw !important;
+            margin: 0 2vw;
+        }
+        @media(max-width:767px){
+            background: url(${Images.facebook1}) no-repeat 55px center #3b5998 !important; 
+            background-size: 35px !important; 
+            font-size: 20px;
+            width: 350px !important;
+            margin-bottom: 30px;
+        }
+        @media(max-width: 392px){
+            background: url(${Images.facebook1}) no-repeat 16vw center #3b5998 !important; 
+            background-size: 35px !important; 
+            font-size: 17px; 
+            width: 90vw !important;
+       }
+       @media(max-width: 350px){
+            background: url(${Images.facebook1}) no-repeat 14vw center #3b5998 !important; 
+            background-size: 35px !important; 
+        }
+        @media(max-width: 320px){
+            background: url(${Images.facebook1}) no-repeat 11vw center #3b5998 !important; 
+            background-size: 35px !important; 
+        }
     }
 `
 export const CircleButton = styled.div`

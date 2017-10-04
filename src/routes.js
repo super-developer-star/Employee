@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, Redirect } from 'react-router';
 
 import App from './App';
 import Home from './pages/LandingPage';
@@ -7,9 +7,22 @@ import SignUp from './pages/SignUp';
 import ProfilePage from './pages/Profile';
 import Category from './pages/Profile/Category';
 import Submition from './pages/Profile/Submition';
-import Candidate from './pages/Candidate';
-import Employer from './pages/Employer';
+import Candidate from './pages/Profile/Candidate';
+import Employer from './pages/Profile/Employer';
 import Standard from './pages/Standard';
+import Contact from './pages/Contact';
+
+const isloggedIn = () => {
+    const fb = sessionStorage.getItem('fb')
+    const google = sessionStorage.getItem('google')
+    let loggedIn = false
+  
+    if (fb || google) {
+      loggedIn = true
+    }
+  
+    return loggedIn
+}
 
 export default (
     <Route path="/" component={ App }>
@@ -20,9 +33,10 @@ export default (
             <IndexRoute component={ Category } />
             <Route path="/profile/category" component={ Category } />
             <Route path="/profile/submition" component={ Submition } />            
-        </Route>
-        <Route path="/candidate" component={ Candidate } />
-        <Route path="/employer" component={ Employer } />
+            <Route path="/profile/candidate" component={ Candidate } />
+            <Route path="/profile/employer" component={ Employer } />
+        </Route>        
         <Route path="/standard" component={ Standard } />
+        <Route path="/contact" component={ Contact } />
     </Route>
 )

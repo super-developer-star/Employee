@@ -16,7 +16,7 @@ class MapView extends Component {
                     width: "70vw"
                 }}
                 center={[12.568337, 55.676098]}
-                zoom={[9]}>  
+                zoom={[14]}>  
                 <Marker
                 coordinates={[12.568337, 55.676098]}
                 anchor="top">
