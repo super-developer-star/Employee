@@ -17,7 +17,7 @@ export const Content = styled.div`
     margin: auto;
     padding: 15px 0 150px 0;    
     filter: grayscale(0);
-    
+
     @media(max-width:767px){
         background-size: 65vw;
         background-position: center center;
@@ -108,7 +108,11 @@ export const Image = styled.img`
     top: 5px;
 `
 export const Arrow = styled.div`
-
+    @media(max-height:850px){
+        img {
+            display: none;
+        }
+    }
     img {
         width:50px;
         position: absolute;
