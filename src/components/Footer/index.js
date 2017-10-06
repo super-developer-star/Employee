@@ -14,23 +14,27 @@ class Footer extends React.Component {
             <Container>
                 <Logo src={Images.logo_footer} alt="footer" />
                 <List>
-                    <ListItems><Link onClick={() =>this.gotoPage('/home')}>Home</Link></ListItems>
-                    <ListItems><Link href="">About</Link></ListItems>
-                    <ListItems><Link href="">Contact</Link></ListItems>
-                    <ListItems><Link href="">Privacy and GDPR</Link></ListItems>
-                    <ListItems social linkedin><Link href=""><img src={Images.linkedin} alt="linkedin"/></Link></ListItems>
-                    <ListItems social><Link href=""><img src={Images.facebook} alt="facebook"/></Link></ListItems>
+                    <ListItems>
+                        <Link onClick={() =>this.gotoPage('/home')}>Home</Link>
+                        <Link onClick={() =>this.gotoPage('/about')}>About</Link>
+                        <Link onClick={() =>this.gotoPage('/contact')}>Contact</Link>
+                        <Link href="">Privacy and GDPR</Link>
+                    </ListItems>
+                    <ListItems social>
+                        <Link social onClick={() =>this.gotoPage('/linkedin.com')}><img src={Images.linkedin_home} alt="linkedin"/></Link>
+                        <Link social onClick={() =>this.gotoPage('/facebook.com')}><img src={Images.facebook_home} alt="facebook"/></Link>
+                    </ListItems>
                 </List>
                 <MobileList>
                     <ListItems>
                         <Link onClick={() =>this.gotoPage('/home')}>Home</Link>
-                        <Link href="">About</Link>
-                        <Link href="">Contact</Link>
+                        <Link onClick={() =>this.gotoPage('/about')}>About</Link>
+                        <Link onClick={() =>this.gotoPage('/contact')}>Contact</Link>
                     </ListItems>
                     <ListItems><Link href="">Privacy and GDPR</Link></ListItems>
                     <ListItems social>
-                        <Link social href=""><img src={Images.linkedin} alt="linkedin"/></Link>
-                        <Link social href=""><img src={Images.facebook} alt="facebook"/></Link>
+                        <Link social onClick={() =>this.gotoPage('/linkedin.com')}><img src={Images.linkedin_home} alt="linkedin"/></Link>
+                        <Link social onClick={() =>this.gotoPage('/facebook.com')}><img src={Images.facebook_home} alt="facebook"/></Link>
                     </ListItems>
                 </MobileList>
             </Container>

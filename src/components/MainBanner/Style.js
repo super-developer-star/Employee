@@ -2,7 +2,10 @@ import styled from 'styled-components'
 import Images from '../../themes/images'
 
 export const Wrapper = styled.div`
-    padding: 250px 0 10vw 0;
+    padding: 12vw 0 10vw 0;
+    @media(max-width:1224px){
+        padding-top: 160px;
+    }
 
     @media(max-width: 767px) {
         padding: 85px 0 0 0;
@@ -15,18 +18,32 @@ export const Content = styled.div`
     font-size: 22px;
     line-height: 31px;
     margin: auto;
-    padding: 15px 0 150px 0;    
+    padding: ${props =>props.employer ? '45px 0 150px 0': '10px 0 150px 0'};    
+    // padding: 10px 0 150px 0;
     filter: grayscale(0);
+    position: relative;
+    bottom: 30px;
 
+    @media(max-width:892PX){
+        padding: 10px 0 150px 0;
+    }
     @media(max-width:767px){
-        background-size: 65vw;
+        background-size: 75vw;
         background-position: center center;
+        padding: 10px 0 150px 0;
+        bottom: 60px;
     }
     @media(max-width:592px){
-        background-size: 385px;        
+        background-size: 385px;     
+        background-size: 95vw;
     }
-    @media(max-width:592px){
-        background-size: 95vw;        
+    @media(max-width:457px){         
+        padding: ${props =>props.employer ? '10px 0 120px 0': ''};
+        bottom: ${props =>props.employer ? '30px': ''};
+    }
+    @media(max-width:392px){
+        bottom: 60px;
+        padding: ${props =>props.employer ? '35px 0 150px 0': '10px 0 150px 0'};
     }
 `
 
@@ -50,8 +67,8 @@ export const Heading = styled.h3`
 `
 
 export const Text = styled.p`
-    font-size: ${props => props.smaller ? '18px' : '25px'};
-    margin: 0 0 10px;
+    font-size: ${props => props.smaller ? '18px' : '22px'};
+    margin: ${props => props.smaller ? '0 0 10px' : '35px 0 10px'};
     z-index: 0;
     line-height: 35px;
 
@@ -60,7 +77,7 @@ export const Text = styled.p`
     }
     @media(max-width: 767px){
         font-size: ${props => props.smaller ? '13px' : '20px'};
-        margin:  ${props => props.smaller ? '': '0 25px 0 20px'};
+        margin:  ${props => props.smaller ? '': '60px 25px 0 20px'};
         line-height:30px;
     }
     @media(max-width: 392px){
@@ -106,8 +123,10 @@ export const Image = styled.img`
     margin-right: 5px;
     position: relative;
     top: 5px;
+    
 `
 export const Arrow = styled.div`
+
     @media(max-height:850px){
         img {
             display: none;
@@ -155,4 +174,5 @@ export const Arrow = styled.div`
     @media(max-width:767px){
         display: none;
     }
+        
 `

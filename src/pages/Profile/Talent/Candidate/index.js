@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Switch from 'react-toggle-switch'
-import "../../../node_modules/react-toggle-switch/dist/css/switch.min.css" 
+import "../../../../../node_modules/react-toggle-switch/dist/css/switch.min.css" 
 import { RangeSlider } from 'reactrangeslider';
 import { browserHistory } from 'react-router';
 
-import CircularProgressbar from '../../components/CircularProgressbar';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Tags from '../../components/Tags';
+import CircularProgressbar from '../../../../components/CircularProgressbar';
+import Header from '../../../../components/Header';
+import Footer from '../../../../components/Footer';
+import Tags from '../../../../components/Tags';
 import { 
     Wrapper,
     Heading,
@@ -24,7 +24,7 @@ import {
     Slider,
     Info,
     Contact } from './Style';
-import Images from '../../themes/images';
+import Images from '../../../../themes/images';
 
 class TagList extends Component {
     constructor(props){
@@ -177,7 +177,7 @@ class Candidate extends Component {
                     </p>
                 </Info>
                 <Contact >
-                    <a onClick={() => this.pageNavigation('/employer')}>Contact my agent</a>
+                    <a onClick={() => this.pageNavigation('/contact')}>Contact my agent</a>
                 </Contact>
                 <Footer />
             </Wrapper>

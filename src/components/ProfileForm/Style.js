@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const FormWrapper = styled.div`
     margin: 35px auto 0;
     max-width: 700px;
     text-align: center;
 `
-export const FieldWrapper = styled.div`
-    // margin: 90px 0;
-`
-export const SubHeading = styled.p`
+export const FormSubHeading = styled.p`
     font-size:32px; 
     color: #333;
     
@@ -26,7 +23,7 @@ export const SubHeading = styled.p`
         margin-left: 15%;
     }
 `
-export const ButtonWrapper = styled.div`
+export const FormButtonWrapper = styled.div`
     margin: 40px 0 0;
     display: flex;
     justify-content: center;
@@ -39,7 +36,7 @@ export const ButtonWrapper = styled.div`
     }
 `
 
-export const Button = styled.label`
+export const FormButton = styled.label`
     display: flex;
     justify-content: space-between;
     align-items: center;

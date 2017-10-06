@@ -3,20 +3,22 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import { browserHistory } from 'react-router';
 
-import Header from '../../components/Header';
-import TagList from '../../components/TagList';
-import ProfileForm from '../../components/ProfileForm';
-import Images from '../../themes/images';
+import Header from '../../../components/Header';
+import TagList from '../../../components/TagList';
+import Images from '../../../themes/images';
 import { 
     Wrapper,
     Content,
     FieldWrapper, 
-    Form, 
+    ButtonWrapper,
+    Button,
+    Input, 
     Heading, 
     SubHeading, 
     TagWrapper, 
     Img, 
-    Navigation, 
+    Navigation,
+    PrevButton, 
     NavigationButton, 
     UnderLine,
     TextFieldWrapper,
@@ -37,7 +39,9 @@ class Submition extends Component {
     constructor(){
         super();
         this.state = {
-            tags: []
+            tags: [],
+            beverage: '',
+            status: null
         };
     }
 
@@ -53,6 +57,18 @@ class Submition extends Component {
         this.setState({ tags: temp });
     }
 
+    getBeverage = (beverage) => {
+        this.setState({
+            beverage: beverage
+        })
+    }
+
+    getBeverage = (num) => {
+        this.setState({
+            status: num
+        })
+    }
+
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
             this.addTag(e.target.value);            
@@ -64,7 +80,7 @@ class Submition extends Component {
     }
 
     render() {
-        const { tags } = this.state;
+        const { tags, beverage, status } = this.state;
         return (
             <Wrapper>
                 <Header visible percent={3} save/>
@@ -72,7 +88,7 @@ class Submition extends Component {
                     <Heading>Almost there...</Heading>
                     <FieldWrapper>
                         <SubHeading>Where would you like to work?</SubHeading> 
-                        <Form>
+                        <Input>
                             <MuiThemeProvider>
                                 <TextField    
                                     onKeyDown={this.getText}                                                       
@@ -82,13 +98,25 @@ class Submition extends Component {
                                     underlineShow={false}
                                 />              
                             </MuiThemeProvider>                         
-                        </Form>                                            
+                        </Input>                                            
                         <UnderLine ></UnderLine>                      
                     </FieldWrapper>
                     <TagWrapper>
                         <TagList data={ tags } removeTag={(index) => this.removeTag(index)} />
                     </TagWrapper>
-                    <ProfileForm item={'coffee'} />
+                    <FieldWrapper>
+                        <SubHeading>What is your preffered coffee?</SubHeading>                        
+                        <ButtonWrapper>
+                            <Button active={beverage === 'Espresso'} onClick={() => this.getBeverage('Espresso')}>Espresso</Button>
+                            <Button active={beverage === 'Cappucino'} onClick={() => this.getBeverage('Cappucino')}>Cappucino</Button>
+                            <Button active={beverage === 'Flat white'} onClick={() => this.getBeverage('Flat white')}>Flat white</Button>                                
+                            <Button active={beverage === 'Cortado'} onClick={() => this.getBeverage('Cortado')}>Cortado</Button>
+                            <Button active={beverage === 'Caffe latte'} onClick={() => this.getBeverage('Caffe latte')}>Caffe latte</Button>
+                            <Button active={beverage === 'Macchiato'} onClick={() => this.getBeverage('Macchiato')}>Macchiato</Button>                 
+                            <Button active={beverage === 'Tea'} onClick={() => this.getBeverage('Tea')}>Tea</Button>                 
+                            <Button active={beverage === 'Undecided'} onClick={() => this.getBeverage('Undecided')}>Undecided<img src={Images.remove} alt="" /></Button>                 
+                        </ButtonWrapper>
+                    </FieldWrapper>
                     <FieldWrapper>
                         <SubHeading>Please help us understand your profile</SubHeading> 
                         <IconWrapper>
@@ -100,7 +128,7 @@ class Submition extends Component {
                         </IconWrapper>
                         <FlexWrapper>
                             <TextFieldWrapper>    
-                                <Form add>
+                                <Input add>
                                     <MuiThemeProvider>
                                         <TextField    
                                             onKeyDown={this.getText}                                                       
@@ -110,16 +138,24 @@ class Submition extends Component {
                                             underlineShow={false}
                                         />              
                                     </MuiThemeProvider>                         
-                                </Form>                                            
+                                </Input>                                            
                                 <UnderLine add></UnderLine> 
                             </TextFieldWrapper>
                             <AddButton>Add</AddButton>
                         </FlexWrapper>                     
                     </FieldWrapper>
-                    <ProfileForm item={'status'} />
+                    <FieldWrapper>
+                        <SubHeading>What's your current status?</SubHeading>                        
+                        <ButtonWrapper>
+                            <Button active={status === 1} onClick={() => this.getStatus(1)}>Active</Button>
+                            <Button active={status === 2} onClick={() => this.getStatus(1)}>Passive</Button>
+                            <Button active={status === 3} onClick={() => this.getStatus(1)}>It's complicated</Button>                                                                                                                
+                            <Button active={status === 4} onClick={() => this.getStatus(1)}>Undecided<img src={Images.remove} alt="" /></Button>                    
+                        </ButtonWrapper>
+                    </FieldWrapper>
                     <Navigation>
-                        <NavigationButton prev onClick={() => this.pageNavigation('/profile/category')}><Img src={Images.leftArrow} alt="left" /></NavigationButton>
-                        <NavigationButton onClick={() => this.pageNavigation('/candidate')}>Submit<Img right src={Images.wRightArrow} alt="right" /></NavigationButton>                       
+                        <PrevButton prev onClick={() => this.pageNavigation('/profile/talent/category')}><Img src={Images.leftArrow} alt="left" /></PrevButton>
+                        <NavigationButton onClick={() => this.pageNavigation('/profile/talent/candidate')}>Submit<Img right src={Images.wRightArrow} alt="right" /></NavigationButton>                       
                     </Navigation>
                 </Content>
             </Wrapper>
