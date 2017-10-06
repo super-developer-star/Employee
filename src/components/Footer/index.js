@@ -21,8 +21,8 @@ class Footer extends React.Component {
                         <Link href="">Privacy and GDPR</Link>
                     </ListItems>
                     <ListItems social>
-                        <Link social onClick={() =>this.gotoPage('/linkedin.com')}><img src={Images.linkedin_home} alt="linkedin"/></Link>
-                        <Link social onClick={() =>this.gotoPage('/facebook.com')}><img src={Images.facebook_home} alt="facebook"/></Link>
+                        <Link social onClick={() =>window.location.assign('https://www.linkedin.com')}><img src={Images.linkedin_home} alt="linkedin"/></Link>
+                        <Link social onClick={() =>window.location.assign('https://www.facebook.com')}><img src={Images.facebook_home} alt="facebook"/></Link>
                     </ListItems>
                 </List>
                 <MobileList>
@@ -33,8 +33,8 @@ class Footer extends React.Component {
                     </ListItems>
                     <ListItems><Link href="">Privacy and GDPR</Link></ListItems>
                     <ListItems social>
-                        <Link social onClick={() =>this.gotoPage('/linkedin.com')}><img src={Images.linkedin_home} alt="linkedin"/></Link>
-                        <Link social onClick={() =>this.gotoPage('/facebook.com')}><img src={Images.facebook_home} alt="facebook"/></Link>
+                        <Link social onClick={() =>window.location.assign('https://www.linkedin.com')}><img src={Images.linkedin_home} alt="linkedin"/></Link>
+                        <Link social onClick={() =>window.location.assign('https://www.facebook.com')}><img src={Images.facebook_home} alt="facebook"/></Link>
                     </ListItems>
                 </MobileList>
             </Container>

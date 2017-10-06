@@ -63,8 +63,8 @@ class Navigation extends Component {
                     <li><a onClick={() => this.navigationPage('/about')}>About</a></li>
                     <li><a onClick={() => this.navigationPage('/contact')}>Contact</a></li>
                     <li><a onClick={() => this.navigationPage('/')}>Privacy and GDPR</a></li>
-                    <li><a onClick={() => this.navigationPage('/linkedin.com')}>LinkedIn</a></li>
-                    <li><a onClick={() => this.navigationPage('/facebook.com')}>Facebook</a></li>
+                    <li><a onClick={() => window.location.assign('https://www.linkedin.com')}>LinkedIn</a></li>
+                    <li><a onClick={() => window.location.assign('https://www.facebook.com')}>Facebook</a></li>
                 </Nav>
                 <Container save={save} edit={edit}>
                     <LoginButton />
