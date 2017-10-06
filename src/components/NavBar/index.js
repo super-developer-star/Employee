@@ -60,7 +60,7 @@ class Navigation extends Component {
                 }                                             
                 <Nav className={this.state.isActive ? "active" : ""} >
                     <li><a onClick={() => this.navigationPage('/home')}>Home</a></li>
-                    <li><a onClick={() => this.navigationPage('/standard')}>About</a></li>
+                    <li><a onClick={() => this.navigationPage('/about')}>About</a></li>
                     <li><a onClick={() => this.navigationPage('/contact')}>Contact</a></li>
                     <li><a onClick={() => this.navigationPage('/')}>Privacy and GDPR</a></li>
                     <li><a onClick={() => this.navigationPage('/linkedin.com')}>LinkedIn</a></li>
