@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Heading = styled.a`
     
     padding: 50px 0;
-    @media(max-width:767px){
+    @media(max-width:892px){
         margin-right: auto;
     }   
     @media(max-width:592px){
@@ -11,7 +11,7 @@ export const Heading = styled.a`
     }   
 `
 export const Img = styled.img`
-    width: 210px;
+    width: 250px;
     @media(max-width:492px){
         width: 42vw;
     }

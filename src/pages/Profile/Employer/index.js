@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router';
 
-import CircularProgressbar from '../../components/CircularProgressbar';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Tags from '../../components/Tags';
+import CircularProgressbar from '../../../components/CircularProgressbar';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
+import Tags from '../../../components/Tags';
 import { 
     Wrapper,
     Heading,
@@ -19,7 +19,7 @@ import {
     TagWrapper,
     FieldWrapper,
     Contact } from './Style';
-import Images from '../../themes/images';
+import Images from '../../../themes/images';
 
 class TagList extends Component {
     constructor(props){
@@ -131,7 +131,7 @@ class Employer extends Component {
                     </div>
                 </FieldWrapper>
                 <Contact>
-                    <a onClick={() => this.pageNavigation('/standard')}>Contact my agent</a>
+                    <a onClick={() => this.pageNavigation('/contact')}>Contact my agent</a>
                 </Contact>
                 <Footer />
             </Wrapper>

@@ -80,8 +80,41 @@ export const Button = styled.a`
         // padding: 10px 60px;
         // width: calc(100% * (1/10) - 10px - 1px);
     }
+    img {
+        width: 15px;
+        margin-left: 15px;
+    }
 `
-export const Form = styled.div`    
+export const RadioButton = styled.label`
+    border: 1px solid #FFF;
+    ${props =>props.active ? 'background-color: #4cbf69;color: #FFF;' : 'background-color: #c5eac5;color: #272525;'}
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-size: 16px;    
+    margin: 7px 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+
+    input {
+        display: none;
+    }
+    
+    &:hover, &:focus {
+        background-color: #9eda9e;
+        color: #FFF;
+        cursor: pointer;
+    }
+    @media(max-width:767px){
+        font-size: 15px;
+        align-items: center;
+        display: flex;
+        // height: 35px;
+        justify-content: center;
+        // padding: 10px 60px;
+        // width: calc(100% * (1/10) - 10px - 1px);
+    }
+`
+export const Input = styled.div`    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,10 +167,11 @@ export const Navigation = styled.div`
     justify-content: center;
     align-items: center;
 `
-export const NavigationButton = styled.a`
+export const PrevButton = styled.a`
     border: 1px solid #fff;
-    ${props =>props.prev? 'border-color:#c7c2c2; background-color: transparent; padding: 20px 25px; margin-right: 25px;'
-    :'background-color: #4cbf69; padding: 20px 95px; margin-left: 10px;'}
+    border-color:#c7c2c2; 
+    background-color: transparent; 
+    padding: 20px 25px; 
     border-radius: 50px;        
     font-size: 25px;
     color: #fff;
@@ -150,18 +184,77 @@ export const NavigationButton = styled.a`
     -webkit-transition: 0.5s;
 
     @media(max-width:767px){
-        ${props =>props.prev? 'padding: 15px 20px;':'padding: 15px 80px;'}
-    }
-    @media(max-width:645px){
-        ${props =>props.prev? '':'padding: 15px 12vw;'}
+        padding: 15px 20px;
     }
     @media(max-width:392px){
         font-size: 20px;
-        ${props =>props.prev? 'padding: 10px 15px':'padding: 10px 10vw;'}
+        padding: 10px 15px';
     }
     &:hover {
         cursor: pointer;
-        ${props =>props.prev? 'background-color: #eff5f4;':'background-color: #67c77f;'}
+        background-color: #eff5f4;
+    }
+`
+export const NextButton = styled.button`
+    border: 1px solid #fff;
+    background-color: #4cbf69; 
+    padding: 20px 95px;     
+    border-radius: 50px;        
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    font-family: 'NudistaLight';
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    outline: none;
+
+    @media(max-width:767px){
+       padding: 15px 80px;
+    }
+    @media(max-width:645px){
+       padding: 15px 12vw;
+    }
+    @media(max-width:392px){
+        font-size: 20px;
+        padding: 10px 10vw;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: #67c77f;
+    }
+`
+export const NavigationButton = styled.a`
+    border: 1px solid #fff;
+    background-color: #4cbf69; 
+    padding: 20px 95px;     
+    border-radius: 50px;        
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+
+    @media(max-width:767px){
+    padding: 15px 80px;
+    }
+    @media(max-width:645px){
+    padding: 15px 12vw;
+    }
+    @media(max-width:392px){
+        font-size: 20px;
+        padding: 10px 10vw;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: #67c77f;
     }
 `
 export const Img = styled.img`
@@ -223,5 +316,58 @@ export const IconWrapper = styled.div`
             width: 16.5vw !important;
             margin: 0;
         }
+    }
+`
+export const FormWrapper = styled.div`
+    margin: 35px auto 0;
+    max-width: 700px;
+    text-align: center;
+`
+export const FormButtonWrapper = styled.div`
+    margin: 40px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    @media(max-width:592px){
+        margin: 40px 10% 0;
+        width: 80%;
+    }
+`
+
+export const FormButton = styled.label`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FFF;
+    ${props =>props.active ? 'background-color: #4cbf69;color: #FFF;' : 'background-color: #c5eac5;color: #555;'}
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-size: 16px;    
+    margin: 7px 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+
+    input {
+        display: none;
+    }
+    &:hover, &:focus {
+        background-color: #9eda9e;
+        color: #FFF;
+        cursor: pointer;
+    }
+    @media(max-width:767px){
+        font-size: 15px;
+        align-items: center;
+        display: flex;
+        // height: 35px;
+        justify-content: center;
+        padding: 10px 30px;
+        // width: calc(100% * (1/10) - 10px - 1px);
+    }
+    img {
+        width: 15px;
+        margin-left: 15px;
     }
 `

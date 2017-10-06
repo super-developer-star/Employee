@@ -70,7 +70,7 @@ export const Menu = styled.div`
     @media(max-width:992px){
         ${props =>props.save? 'display:none':''}        
     }
-    @media(max-width:492px){
+    @media(max-width:572px){
         ${props =>props.edit? 'display:none':''}
     }
     @media(max-width:392px){
@@ -158,7 +158,7 @@ export const Container = styled.div`
     @media(max-width:992px){
         ${props =>props.save? 'display:none':''}      
     }  
-    @media(max-width:492px){
+    @media(max-width:572px){
         ${props =>props.edit? 'display:none':''}
     }
 `

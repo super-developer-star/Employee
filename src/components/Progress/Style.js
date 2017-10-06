@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     ${props =>props.save ? 'margin-left:80px; @media(max-width:992px){margin-left:0;}':''}    
-    @media(max-width:767px){
+    @media(max-width:892px){
         position: absolute;        
         margin-top: 65px;
     }
@@ -26,7 +26,7 @@ export const Number = styled.div`
     color: #FFF;
     font-weight: 100;
 
-    @media(max-width:767px){
+    @media(max-width:892px){
         font-size: 17px;
     }
     @media(max-width:462px){
@@ -42,7 +42,7 @@ export const Slash = styled.div`
     width: 40px;
     transform: rotate(-60deg);
 
-        @media(max-width:767px){
+        @media(max-width:892px){
             width: 35px;
         } 
         @media(max-width:462px){
@@ -66,7 +66,7 @@ export const ProgressBar = styled.div`
     @media(max-width:1472px){
         width: 25vw;
     }
-    @media(max-width:767px){
+    @media(max-width:892px){
         width: 40vw;
     }
     @media(max-width:592px){

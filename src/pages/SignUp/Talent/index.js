@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
+import GoogleLogin from 'react-google-login'
+import FacebookLogin from 'react-facebook-login'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux' 
 
-import Header from '../../components/Header';
-import { Wrapper, Content, Heading, ButtonWrapper, SocialButton, CircleButton, Text, Form, UnderLine, Img, SignUpButton } from './Style';
-import Images from '../../themes/images'
+import Header from '../../../components/Header';
+import { Wrapper, Content, Heading, ButtonWrapper, GoogleButton, FacebookButton, CircleButton, Text, Form, UnderLine, Img, SignUpButton } from './Style';
+import Images from '../../../themes/images'
+import { session } from '../../../services/session'
+import { signUpRequest } from '../../../actions/auth'
 
 const styles = {
     floatingLabelStyle: {
@@ -27,6 +33,55 @@ class SignUp extends Component {
             isPlace: '',
             isRequired: false
         };
+    }
+
+    componentWillMount() {
+        const { isLoggedIn } = this.props;
+        // if(isLoggedIn || session()){
+        //     console.log('login', isLoggedIn, session());
+        //     browserHistory.push('/profile/talent');
+        // }
+    }
+
+    responseGoogle(response) {
+        console.log('google-response', response) 
+        const profile = response.profileObj
+        const name = profile.name.split(" ")
+        const obj = {
+            firstName: name[0],
+            LastName: name[1],
+            Email: profile.email,
+            accessToken: response.accessToken,
+            picture: profile.imageUrl
+        }
+        sessionStorage.setItem('google', obj.accessToken)
+        // this.props.actions.signUpRequest('Signup1', obj)
+        //     .then(() => {
+                browserHistory.push('/profile');
+        //     })
+        //     .catch(() => {
+        //         //TODO: any processing
+        //     })    
+    }
+
+    responseFacebook(response) { 
+        console.log('facebook-response', response)       
+        const name = response.name.split(" ");
+        const obj = {
+            firstName: name[0],
+            LastName: name[1],
+            Email: response.email,
+            accessToken: response.accessToken,
+            picture: response.picture.data.url
+        }
+        sessionStorage.setItem('fb', obj.accessToken)  
+        this.props.actions.signUpRequest('Signup1', obj)
+        // .then(() => {
+            browserHistory.push('/profile');
+        // })
+        // .catch(() => {
+            //TODO: any processing
+        // })         
     }
 
     getName = (e) => {
@@ -53,7 +108,7 @@ class SignUp extends Component {
         });
     }
 
-    gotoNextPage = () => {
+    gotoNextPage = () => {        
         const { isName, isEmail, isPlace, isRequired } = this.state;
         let name = '', email = '', place = '';
         if(isName === '' || isName === 'error'){
@@ -75,13 +130,20 @@ class SignUp extends Component {
             }
         } 
         if(name !== 'error' && email !== 'error' && place !== 'error' && isName !== 'error' && isEmail !== 'error' && isPlace !== 'error'){
-            // let credential = {};
-            // credential = {
-            //     Name: isName,
-            //     Email: isEmail,
-            //     Place: isPlace
-            // }      
-            browserHistory.push('/profile')
+            let credential = {};
+            credential = {
+                FirstName: isName.split(" ")[0],
+                LastName: isName.split(" ")[1],
+                Email: isEmail,
+                Location: isPlace
+            }     
+            // this.props.actions.signUpRequest('Signup1', credential)
+            // .then(() => {
+                browserHistory.push('/profile/talent');
+            // })
+            // .catch(() => {
+                //TODO: any processing
+            // })   
         }   else if(!isRequired){
                 this.setState({
                 isRequired: true,        
@@ -97,14 +159,26 @@ class SignUp extends Component {
                 <Content>
                     <Heading>Sign up now</Heading>
                     <ButtonWrapper>
-                        <SocialButton google>
-                            <img src={Images.google} alt="google" />
-                            <p>Sign up with Google</p>
-                        </SocialButton>
-                        <SocialButton>
-                            <img src={Images.facebook1} alt="facebook" />
-                            <p>Sign up with facebook</p>
-                        </SocialButton>
+                        <GoogleLogin
+                            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                            onSuccess={this.responseGoogle}
+                            onFailure={this.responseGoogle}
+                        >
+                            <GoogleButton google>
+                                <img src={Images.google} alt="google" />
+                                <p>Sign up with Google</p>
+                            </GoogleButton>
+                        </GoogleLogin>                        
+                        <FacebookButton>
+                            <FacebookLogin
+                                appId="459046371113157"
+                                autoLoad={true}
+                                fields="name,email,picture,location"
+                                callback={this.responseFacebook}
+                                cssClass='test'
+                                textButton="Sign up with Facebook"
+                            />                            
+                        </FacebookButton>
                     </ButtonWrapper>
                     <CircleButton>Or</CircleButton>
                     { isRequired &&
@@ -212,4 +286,21 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+/* Map state to props */
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.auth.isLoggedIn
+    }
+}
+
+/* Map Actions to Props */
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators({
+            signUpRequest
+        }, dispatch)
+    };
+}
+
+/* Connect Component with Redux */
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     padding: 0 35px;
 
-    @media(max-width:767px){
+    @media(max-width:892px){
         ${props => props.percent ? 'padding-bottom: 40px;justify-content: center;align-items: center;'
             :''}
     }
