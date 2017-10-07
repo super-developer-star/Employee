@@ -55,12 +55,12 @@ class Category extends Component {
     }
 
     componentWillMount(){
-        subRolesForSave = {}
-        console.log("props", this.props.techs, this.props.subRoles)
+        subRolesForSave = {}        
     }
 
     addTag = (text) => {        
         let temp = this.state.tags.slice()
+        console.log('temp', temp)
         temp.push(text)
         this.setState({ tags: temp })
     }

@@ -122,10 +122,10 @@ class SignUp extends Component {
             this.setState({ isLocation: Validate.palceValidate(value)})
         }
     }
-    handleSignUp = () => {        
+    handleSignUp = () => {                       
         const { isFullName, isEmail, isLocation, isValidate } = this.state
         this.setState({ isValidate: true})
-        if(!isFullName || !isEmail || isLocation ){
+        if(!isFullName || !isEmail || !isLocation ){
             return
         }
         const obj = {
@@ -136,6 +136,7 @@ class SignUp extends Component {
         }
         // this.props.actions.signUpRequest('Signup1', obj)
         // .then(() => {
+                console.log('signup')
                 browserHistory.push('/profile/talent')
         // })
         // .catch(() => {
@@ -144,8 +145,7 @@ class SignUp extends Component {
     }
 
     render() {
-        const { isFullName, isEmail, isLocation, isValidate } = this.state     
-        console.log('name', isFullName)     
+        const { isFullName, isEmail, isLocation, isValidate } = this.state             
         return (
             <Wrapper>                      
                 <Header visible percent={1}/>                       

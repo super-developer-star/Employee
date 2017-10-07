@@ -291,9 +291,11 @@ export const AddButton = styled.a`
     border-radius: 50px;
     padding: 10px 30px;
     margin-top: 10px;
-
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    
     &:hover {
-        cursor: pointer;
+        ${props =>props.active ? 'cursor: pointer;color: #fff; background-color: #c7c2c2;': ''}        
     }
     @media(max-width: 592px){
         margin-top: 15px;

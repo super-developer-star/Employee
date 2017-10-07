@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import { browserHistory } from 'react-router'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Header from '../../../components/Header'
 import TagList from '../../../components/TagList'
@@ -25,6 +27,8 @@ import {
     FlexWrapper,
     AddButton,
     IconWrapper } from './Style'
+import { getSubmitionData, postSubmitionData } from '../../../actions/talent'
+import * as Validate from '../../../constants/validate'
 
 const styles = {
     floatingLabelStyle: {
@@ -39,22 +43,34 @@ class Submition extends Component {
     constructor(){
         super()
         this.state = {
-            tags: [],
+            locations: [],
             beverage: '',
-            status: null
+            status: null,
+            urls: [],
+            url: '',
+            isValidate: false
         }
     }
 
-    addTag = (text) => {        
-        let temp = this.state.tags.slice()
-        temp.push(text)
-        this.setState({ tags: temp })
+    componentWillMount() {
+        const { locations, status, beverage } = this.props
+        this.setState({
+            locations: locations,
+            status: status,
+            beverage: beverage
+        })
     }
 
-    removeTag = (index) => {
-        let temp = this.state.tags.slice()
+    addLocation = (text) => {        
+        let temp = this.state.locations.slice()
+        temp.push(text)
+        this.setState({ locations: temp })        
+    }
+
+    removeLocation = (index) => {
+        let temp = this.state.locations.slice()
         temp.splice(index, 1)
-        this.setState({ tags: temp })
+        this.setState({ locations: temp })
     }
 
     getBeverage = (beverage) => {
@@ -63,7 +79,7 @@ class Submition extends Component {
         })
     }
 
-    getBeverage = (num) => {
+    getStatus = (num) => {
         this.setState({
             status: num
         })
@@ -71,17 +87,47 @@ class Submition extends Component {
 
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
-            this.addTag(e.target.value)  
+            this.addLocation(e.target.value)  
             e.target.value = ''          
         }
     }
 
-    pageNavigation = (path) => {
-        browserHistory.push(path)
+    getUrl = (e) => {        
+        this.setState({
+            isValidate: Validate.socialValidate(e.target.value),
+            url: e.target.value
+        })
     }
 
-    render() {
-        const { tags, beverage, status } = this.state
+    addUrl = () => {
+        let temp = this.state.urls.slice()
+        temp.push(this.state.url)
+        this.setState({
+            urls: temp,
+            isValidate: false
+        })
+        console.log('input', this.urlInput)
+        this.urlInput.input.value = 'https://'
+        this.urlInput.focus()
+    }
+
+    pageNavigation = (path) => {
+        const data = {
+            // ProfileId: this.props.profileID,
+            Locations: this.state.locations,
+            Beverage: this.state.beverage,
+            Social: this.state.urls,
+            Status: this.state.status
+        }
+        this.props.actions.getSubmitionData(data.Locations, data.Beverage, data.Social, data.Status)
+        // this.props.actions.postSubmitionData('Signup3', data)
+            // .then(() => {
+                browserHistory.push(path)
+            // })       
+    }
+
+    render() {        
+        const { locations, beverage, status, isValidate } = this.state
         return (
             <Wrapper>
                 <Header visible percent={3} save/>
@@ -91,7 +137,8 @@ class Submition extends Component {
                         <SubHeading>Where would you like to work?</SubHeading> 
                         <Input>
                             <MuiThemeProvider>
-                                <TextField    
+                                <TextField   
+                                    ref={(input) => {this.tagInput = input}} 
                                     onKeyDown={this.getText}                                                       
                                     floatingLabelText="Type city"
                                     floatingLabelStyle={styles.floatingLabelStyle}  
@@ -103,7 +150,7 @@ class Submition extends Component {
                         <UnderLine ></UnderLine>                      
                     </FieldWrapper>
                     <TagWrapper>
-                        <TagList data={ tags } removeTag={(index) => this.removeTag(index)} />
+                        <TagList data={ locations } removeTag={(index) => this.removeLocation(index)} />
                     </TagWrapper>
                     <FieldWrapper>
                         <SubHeading>What is your preffered coffee?</SubHeading>                        
@@ -131,9 +178,10 @@ class Submition extends Component {
                             <TextFieldWrapper>    
                                 <Input add>
                                     <MuiThemeProvider>
-                                        <TextField    
-                                            onKeyDown={this.getText}                                                       
-                                            floatingLabelText="http://"
+                                        <TextField      
+                                            ref={ (input) => {this.urlInput = input;}}                                    
+                                            onChange={this.getUrl}                                                       
+                                            floatingLabelText="https://"
                                             floatingLabelStyle={styles.floatingLabelStyle}  
                                             floatingLabelShrinkStyle={styles.floatingLabelShrinkStyle}                                
                                             underlineShow={false}
@@ -142,7 +190,7 @@ class Submition extends Component {
                                 </Input>                                            
                                 <UnderLine add></UnderLine> 
                             </TextFieldWrapper>
-                            <AddButton>Add</AddButton>
+                            { isValidate ? <AddButton active onClick={this.addUrl}>Add</AddButton> : <AddButton >Add</AddButton> }                            
                         </FlexWrapper>                     
                     </FieldWrapper>
                     <FieldWrapper>
@@ -164,4 +212,23 @@ class Submition extends Component {
     }
 }
 
-export default Submition
+// Map state to props
+const mapStateToProps = (state) => {
+    const { locations, beverage, status, social } = state.talent
+    return {
+        // profileID: state.auth.profileID,
+        locations, beverage, status, social
+    }
+}
+
+// Map action to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators({
+            getSubmitionData,
+            // postSubmitionData
+        }, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Submition)
