@@ -22,13 +22,11 @@ class Model extends React.Component {
 
     toggleSwitch = () => {
         const { dispatch } = this.props;
-        let type = this.state.switched ? 'talent' : 'employer'
-        console.log('type', type);
+        let type = this.state.switched ? 'talent' : 'employer'        
         dispatch(changeType(type));
     };
 
-    render () {   
-        console.log(this.state.switched, this.props.type);     
+    render () {            
         return (
             <Wrapper>
                 <span>Talent</span><Switch onClick={this.toggleSwitch} on={this.state.switched}/><span>Employer</span>

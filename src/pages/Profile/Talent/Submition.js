@@ -71,7 +71,8 @@ class Submition extends Component {
 
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
-            this.addTag(e.target.value);            
+            this.addTag(e.target.value);  
+            e.target.value = ''          
         }
     }
 

@@ -3,7 +3,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import { browserHistory } from 'react-router';
 import {Form, Checkbox, Radio, RadioGroup } from 'react-form'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
+import { getSubRolesAndTechs, postSignup2Data } from '../../../actions/talent'
 import Header from '../../../components/Header';
 import TagList from '../../../components/TagList';
 import Images from '../../../themes/images';
@@ -34,16 +37,13 @@ const styles = {
     }
 }
 
-let valuesForSave;
+let subRolesForSave;
 
 class Category extends Component {
     constructor(props){
         super(props);        
-        this.state = {            
-            roles: [],            
-            passedSubRoles: [],          
-            // defaultValue: this.props.defaultValue,
-            tags: [],
+        this.state = {                              
+            tags: this.props.techs,
             engineering: "Backend Engineer, Frontend Engineer, Fullstack Engineer, Mobile, DevOps and Tooling, QA",
             sales: "Sales Representative, Account Executive, Sales Manager, Sales Director",
             product: "Product Analyst, Product Marketign Manager, Product Manager, Product Line Director",
@@ -54,7 +54,8 @@ class Category extends Component {
     }
 
     componentWillMount(){
-        valuesForSave = {}
+        subRolesForSave = {}
+        console.log("props", this.props.techs, this.props.subRoles)
     }
 
     addTag = (text) => {        
@@ -69,9 +70,11 @@ class Category extends Component {
         this.setState({ tags: temp });
     }
 
-    getText = (e) => {        
+    getText = (e) => {                
         if(e.keyCode === 13 && e.target.value) {            
+            e.preventDefault();
             this.addTag(e.target.value);            
+            e.target.value = '';
         }
     }
 
@@ -81,13 +84,13 @@ class Category extends Component {
 
     getSubRoles = (values) => {
         let subRoles = [];
-        let roles = [];
+        let roles = [];        
         Object.entries(values).forEach((value) =>{
             if(value[1] === true){
                 subRoles.push(value[0].replace(/_/g, " "))
             }  
         });   
-        subRoles.forEach((subRole) => {
+        subRoles.forEach((subRole) => {            
             if(this.state.engineering.indexOf(subRole) !== -1){
                 if(roles.indexOf("Engineering") === -1){
                     roles.push("Engineering");
@@ -119,10 +122,20 @@ class Category extends Component {
                 }                
             }
         });
+        const obj = {
+            // ProfileId: this.props.profileID,
+            Roles: roles,
+            SubRoles: subRoles,
+            Technologies: this.state.tags
+        }
         console.log('roles', roles);
         console.log('subRoles', subRoles)
-        console.log('save', valuesForSave)
-        browserHistory.push('/profile/talent/submition')
+        console.log('save', subRolesForSave)
+        this.props.actions.getSubRolesAndTechs(subRolesForSave, this.state.tags);
+        // this.props.actions.postSignup2Data('Singup2', obj)
+            // .then(() => {
+                 browserHistory.push('/profile/talent/submition')
+            // })       
     }
 
     render() {
@@ -130,13 +143,13 @@ class Category extends Component {
         return (
             <Wrapper>   
                 <Form 
-                    defaultValues={{}}
+                    defaultValues={this.props.subRoles}
                     onSubmit={(values => {                        
                         this.getSubRoles(values)
                     })}
                 >
                     { ({ submitForm, values }) => {                          
-                        valuesForSave = values;
+                        subRolesForSave = values;
                         return (
                             <form onSubmit={submitForm}>
                             <Header visible percent={2} save/>                
@@ -228,7 +241,7 @@ class Category extends Component {
                                     <SubHeading>Preferred technology</SubHeading> 
                                     <Input>
                                         <MuiThemeProvider>
-                                            <TextField    
+                                            <TextField                                                
                                                 onKeyDown={this.getText}                                                       
                                                 floatingLabelText="Type here..."
                                                 floatingLabelStyle={styles.floatingLabelStyle}  
@@ -256,4 +269,21 @@ class Category extends Component {
     }
 }
 
-export default Category;
+const mapStateToProps = (state) => {
+    return {
+        // profileID: state.auth.profileID,
+        subRoles: state.talent.subRoles,
+        techs: state.talent.techs
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators({
+            getSubRolesAndTechs,
+            // postSignup2Data
+        }, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Category);
