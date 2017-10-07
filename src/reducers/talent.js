@@ -15,4 +15,4 @@ const talent_reducer = (state = initialState, action) => {
     }   
 }
 
-export default talent_reducer;
+export default talent_reducer

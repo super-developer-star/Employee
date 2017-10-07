@@ -3,7 +3,14 @@ import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
 import Images from '../../themes/images'
-import { Wrapper, Content, Text, Heading, SignUpLink, Image, Arrow } from './Style'
+import { 
+    Wrapper,
+    Content, 
+    Text, 
+    Heading, 
+    SignUpLink, 
+    Image, 
+    Arrow } from './Style'
 
 class MainBanner extends React.Component {
     
@@ -34,6 +41,7 @@ class MainBanner extends React.Component {
     }
 }
 
+// Map state to props
 const mapStateToProps = (state) => {
     return {
         type: state.auth.type

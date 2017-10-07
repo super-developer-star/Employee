@@ -3,8 +3,10 @@ import Logo from '../Logo'
 import NavBar from '../NavBar'
 import Progress from '../Progress'
 import Model from '../Model'
-// import SaveButton from '../Save'
-import { Container, Wrapper, ModelWrapper } from './Style'
+import { 
+    Container, 
+    Wrapper, 
+    ModelWrapper } from './Style'
 
 export default ({landing, percent, visible, save, edit}) => {    
     return (

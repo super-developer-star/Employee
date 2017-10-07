@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import { browserHistory } from 'react-router';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField'
+import { browserHistory } from 'react-router'
 
-import { Wrapper, Heading, Info, Form, UnderLine, Button } from './Style'
+import { 
+    Wrapper, 
+    Heading,      
+    Form, 
+    UnderLine, 
+    Button } from './Style'
 import Header from '../../../components/Header'
 import Footer from '../../../components/Footer'
 
@@ -17,18 +22,15 @@ const styles = {
 }
 
 class SignUp extends Component {
-    constructor(){
-        super();
-    }
 
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
-            console.log(e.target.value);            
+            console.log(e.target.value)            
         }
     }
 
     pageNavigation = (path) => {
-        browserHistory.push(path);
+        browserHistory.push(path)
     }
 
     render() {

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField'
 
-import { Wrapper, Heading, Info, MapContainer, Form, UnderLine, Button } from './Style'
+import { 
+    Wrapper, 
+    Heading, 
+    Info, 
+    MapContainer, 
+    Form, 
+    UnderLine, 
+    Button } from './Style'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MapView from '../../components/Map'
@@ -18,12 +25,12 @@ const styles = {
 
 class Contact extends Component {
     constructor(){
-        super();
+        super()
     }
 
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
-            console.log(e.target.value);            
+            console.log(e.target.value)            
         }
     }
 

@@ -1,6 +1,12 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import { Container, Logo, List, ListItems, Link, MobileList} from './Style'
+import { 
+    Container, 
+    Logo, 
+    List, 
+    ListItems, 
+    Link, 
+    MobileList } from './Style'
 import Images from '../../themes/images'
 
 class Footer extends React.Component {
@@ -42,4 +48,4 @@ class Footer extends React.Component {
     }
 }
 
-export default Footer;
+export default Footer

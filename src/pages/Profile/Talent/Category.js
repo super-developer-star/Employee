@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import { browserHistory } from 'react-router';
+import React, { Component } from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField'
+import { browserHistory } from 'react-router'
 import {Form, Checkbox, Radio, RadioGroup } from 'react-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { getSubRolesAndTechs, postSignup2Data } from '../../../actions/talent'
-import Header from '../../../components/Header';
-import TagList from '../../../components/TagList';
-import Images from '../../../themes/images';
-import { Wrapper, 
+import Header from '../../../components/Header'
+import TagList from '../../../components/TagList'
+import Images from '../../../themes/images'
+import { 
+    Wrapper, 
     Content, 
     Heading, 
     FieldWrapper, 
@@ -26,7 +27,7 @@ import { Wrapper,
     Img,
     FormButton,
     FormButtonWrapper,
-    FormWrapper } from './Style';
+    FormWrapper } from './Style'
 
 const styles = {
     floatingLabelStyle: {
@@ -37,11 +38,11 @@ const styles = {
     }
 }
 
-let subRolesForSave;
+let subRolesForSave
 
 class Category extends Component {
     constructor(props){
-        super(props);        
+        super(props)        
         this.state = {                              
             tags: this.props.techs,
             engineering: "Backend Engineer, Frontend Engineer, Fullstack Engineer, Mobile, DevOps and Tooling, QA",
@@ -59,79 +60,80 @@ class Category extends Component {
     }
 
     addTag = (text) => {        
-        let temp = this.state.tags.slice();
-        temp.push(text);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.push(text)
+        this.setState({ tags: temp })
     }
 
     removeTag = (index) => {
-        let temp = this.state.tags.slice();
-        temp.splice(index, 1);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.splice(index, 1)
+        this.setState({ tags: temp })
     }
 
     getText = (e) => {                
         if(e.keyCode === 13 && e.target.value) {            
-            e.preventDefault();
-            this.addTag(e.target.value);            
-            e.target.value = '';
+            e.preventDefault()
+            this.addTag(e.target.value)            
+            e.target.value = ''
         }
     }
 
     pageNavigation = (path) => {
-        browserHistory.push(path);
+        browserHistory.push(path)
     }
 
     getSubRoles = (values) => {
-        let subRoles = [];
-        let roles = [];        
+        let subRoles = []
+        let roles = []        
         Object.entries(values).forEach((value) =>{
-            if(value[1] === true){
-                subRoles.push(value[0].replace(/_/g, " "))
+            if(value[1] === true){                
+                value[0] === 'UX_Designer' ? subRoles.push(('UI/'+value[0]).replace(/_/g, " ")) 
+                : subRoles.push(value[0].replace(/_/g, " "))
             }  
-        });   
+        })   
         subRoles.forEach((subRole) => {            
             if(this.state.engineering.indexOf(subRole) !== -1){
                 if(roles.indexOf("Engineering") === -1){
-                    roles.push("Engineering");
+                    roles.push("Engineering")
                 }                
             }
             else if(this.state.sales.indexOf(subRole) !== -1){
                 if(roles.indexOf("Sales") === -1){
-                    roles.push("Sales");
+                    roles.push("Sales")
                 }                
             }
             else if(this.state.product.indexOf(subRole) !== -1){
                 if(roles.indexOf("Product") === -1){
-                    roles.push("Product");
+                    roles.push("Product")
                 }                
             }
             else if(this.state.marketing.indexOf(subRole) !== -1){
                 if(roles.indexOf("Marketing") === -1){
-                    roles.push("Marketing");
+                    roles.push("Marketing")
                 }                
             }
             else if(this.state.design.indexOf(subRole) !== -1){
                 if(roles.indexOf("Design") === -1){
-                    roles.push("Design");
+                    roles.push("Design")
                 }                
             }
             else if(this.state.finance.indexOf(subRole) !== -1){
                 if(roles.indexOf("Finance") === -1){
-                    roles.push("Finance");
+                    roles.push("Finance")
                 }                
             }
-        });
+        })
         const obj = {
             // ProfileId: this.props.profileID,
             Roles: roles,
             SubRoles: subRoles,
             Technologies: this.state.tags
         }
-        console.log('roles', roles);
+        console.log('roles', roles)
         console.log('subRoles', subRoles)
         console.log('save', subRolesForSave)
-        this.props.actions.getSubRolesAndTechs(subRolesForSave, this.state.tags);
+        this.props.actions.getSubRolesAndTechs(subRolesForSave, this.state.tags)
         // this.props.actions.postSignup2Data('Singup2', obj)
             // .then(() => {
                  browserHistory.push('/profile/talent/submition')
@@ -139,7 +141,7 @@ class Category extends Component {
     }
 
     render() {
-        const { role, allSubRoles, tags } = this.state;
+        const { role, allSubRoles, tags } = this.state
         return (
             <Wrapper>   
                 <Form 
@@ -149,7 +151,7 @@ class Category extends Component {
                     })}
                 >
                     { ({ submitForm, values }) => {                          
-                        subRolesForSave = values;
+                        subRolesForSave = values
                         return (
                             <form onSubmit={submitForm}>
                             <Header visible percent={2} save/>                
@@ -269,6 +271,7 @@ class Category extends Component {
     }
 }
 
+// Map state to props
 const mapStateToProps = (state) => {
     return {
         // profileID: state.auth.profileID,
@@ -277,6 +280,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+// Map action to props
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
@@ -286,4 +290,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, mapDispatchToProps)(Category)

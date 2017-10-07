@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
+import React, { Component } from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField'
 
-import Tag from '../Tag';
+import Tag from '../Tag'
 import { 
     Wrapper,
     AddButton,
-    Input } from './Style';
+    Input } from './Style'
 
 const hide = {
     display: 'none'
@@ -14,7 +14,7 @@ const hide = {
 
 class Tags extends Component {
     constructor(){
-        super();
+        super()
         this.state =  {
             addtag: false
         }
@@ -22,23 +22,23 @@ class Tags extends Component {
 
     componentDidUpdate() {
         if (this.state.addtag){
-            this.tagInput.focus();
+            this.tagInput.focus()
         }
     }
 
     onInputTag = (e) => {
         if (e.keyCode === 13) {
-            this.props.addTag(e.target.value);            
-            this.showHideTagInput();
+            this.props.addTag(e.target.value)            
+            this.showHideTagInput()
         }
     } 
 
     showHideTagInput = () => {
-        this.setState({ addtag: !this.state.addtag });
+        this.setState({ addtag: !this.state.addtag })
     }
 
     remove = (index) => {        
-        this.props.removeTag(index);
+        this.props.removeTag(index)
     }
 
     render() {
@@ -46,7 +46,7 @@ class Tags extends Component {
             return (
                 <Tag name={name} key={index} onRemove={ () => this.remove(index) } />
             )
-        });
+        })
         return (
             <Wrapper>
                 {taglist}                
@@ -55,7 +55,7 @@ class Tags extends Component {
                     <Input>
                         <MuiThemeProvider>
                             <TextField   
-                                ref={ (input) => { this.tagInput = input; }} 
+                                ref={ (input) => { this.tagInput = input }} 
                                 onKeyDown={this.onInputTag}                                                                                      
                                 
                             />              
@@ -67,4 +67,4 @@ class Tags extends Component {
     }
 }
 
-export default Tags;
+export default Tags

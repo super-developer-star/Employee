@@ -7,21 +7,20 @@ import Images from '../../themes/images'
 
 class Logo extends React.Component {
     constructor(){
-        super();
+        super()
         this.state = {
             isEnable: false
         }
     }
 
-    gotoHome = (path) => {
-       
+    gotoHome = (path) => {       
        setTimeout(function() {
-        $('.logo').addClass("animation")
-    }, 100); 
+            $('.logo').addClass("animation")
+        }, 100) 
        setTimeout(function() {
            $('.logo').removeClass("animation")     
            browserHistory.push(path) 
-       }, 300);             
+        }, 300)             
     }
 
     render() {

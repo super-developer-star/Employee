@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 // import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 class TalentPage extends Component {
 
     componentDidMount(){
-        // const { isLoggedIn } = this.props;
+        // const { isLoggedIn } = this.props
         // if(!isLoggedIn && !session()){
         //     { this.props.type === 'talent' ?   
-                    // browserHistory.push('/signup/talent') : browserHistory.push('signup/employer');
+                    // browserHistory.push('/signup/talent') : browserHistory.push('signup/employer')
         //     }
         // }
     }
@@ -20,10 +20,11 @@ class TalentPage extends Component {
             <div>
                 {this.props.children}
             </div>
-        );
+        )
     }
 }
 
+// Map state to props
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.auth.isLoggedIn,
@@ -31,4 +32,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(TalentPage);
+export default connect(mapStateToProps)(TalentPage)

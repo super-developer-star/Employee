@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import { browserHistory } from 'react-router';
+import React, { Component } from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField'
+import { browserHistory } from 'react-router'
 
-import Header from '../../../components/Header';
-import TagList from '../../../components/TagList';
-import Images from '../../../themes/images';
+import Header from '../../../components/Header'
+import TagList from '../../../components/TagList'
+import Images from '../../../themes/images'
 import { 
     Wrapper,
     Content,
@@ -24,7 +24,7 @@ import {
     TextFieldWrapper,
     FlexWrapper,
     AddButton,
-    IconWrapper } from './Style';
+    IconWrapper } from './Style'
 
 const styles = {
     floatingLabelStyle: {
@@ -37,24 +37,24 @@ const styles = {
 
 class Submition extends Component {
     constructor(){
-        super();
+        super()
         this.state = {
             tags: [],
             beverage: '',
             status: null
-        };
+        }
     }
 
     addTag = (text) => {        
-        let temp = this.state.tags.slice();
-        temp.push(text);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.push(text)
+        this.setState({ tags: temp })
     }
 
     removeTag = (index) => {
-        let temp = this.state.tags.slice();
-        temp.splice(index, 1);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.splice(index, 1)
+        this.setState({ tags: temp })
     }
 
     getBeverage = (beverage) => {
@@ -71,17 +71,17 @@ class Submition extends Component {
 
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
-            this.addTag(e.target.value);  
+            this.addTag(e.target.value)  
             e.target.value = ''          
         }
     }
 
     pageNavigation = (path) => {
-        browserHistory.push(path);
+        browserHistory.push(path)
     }
 
     render() {
-        const { tags, beverage, status } = this.state;
+        const { tags, beverage, status } = this.state
         return (
             <Wrapper>
                 <Header visible percent={3} save/>
@@ -164,4 +164,4 @@ class Submition extends Component {
     }
 }
 
-export default Submition;
+export default Submition

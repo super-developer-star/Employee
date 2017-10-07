@@ -11,10 +11,10 @@ export const Wrapper = styled.div`
     }
 `
 export const Fraction = styled.div`
-    margin: 0 40px 0 -60px;
-
+    
+    ${props =>props.save ? 'margin: 0 40px 0 -60px;':'margin: 0 40px 0 -10vw;'} 
     @media(max-width:1472px){
-        margin: 0 3vw 0 -5vw;
+        ${props =>props.save ? ' margin: 0 3vw 0 -5vw;':' margin: 0 3vw 0 -11vw;'}        
     }
     @media(max-width:592px){
         margin: 0 3vw 0 0;

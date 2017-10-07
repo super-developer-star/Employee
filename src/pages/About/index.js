@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 import { 
     Wrapper,
     Heading, 
     Info,
-    FieldWrapper } from './Style';
-import Images from '../../themes/images';
+    FieldWrapper } from './Style'
+import Images from '../../themes/images'
 
 class Standard extends Component {
 
@@ -64,6 +64,7 @@ class Standard extends Component {
     }
 }
 
+// Map state to props
 const mapStateToProps = (state) => {
     return {
         type: state.auth.type

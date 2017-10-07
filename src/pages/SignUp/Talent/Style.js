@@ -182,7 +182,7 @@ export const Form = styled.div`
 `
 export const UnderLine = styled.hr`
     width: 850px;
-    border-top: ${props =>props.empty ? '1px solid #f7be28;':'1px solid #c7c2c2;'}
+    border-top: ${props =>props.error ? '1px solid #f7be28;':'1px solid #c7c2c2;'}
 
     @media(max-width: 1023px){
         width: 735px;

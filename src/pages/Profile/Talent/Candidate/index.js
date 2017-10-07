@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Switch from 'react-toggle-switch'
 import "../../../../../node_modules/react-toggle-switch/dist/css/switch.min.css" 
-import { RangeSlider } from 'reactrangeslider';
-import { browserHistory } from 'react-router';
+import { RangeSlider } from 'reactrangeslider'
+import { browserHistory } from 'react-router'
 
-import CircularProgressbar from '../../../../components/CircularProgressbar';
-import Header from '../../../../components/Header';
-import Footer from '../../../../components/Footer';
-import Tags from '../../../../components/Tags';
+import CircularProgressbar from '../../../../components/CircularProgressbar'
+import Header from '../../../../components/Header'
+import Footer from '../../../../components/Footer'
+import Tags from '../../../../components/Tags'
 import { 
     Wrapper,
     Heading,
@@ -23,27 +23,27 @@ import {
     FieldWrapper,
     Slider,
     Info,
-    Contact } from './Style';
-import Images from '../../../../themes/images';
+    Contact } from './Style'
+import Images from '../../../../themes/images'
 
 class TagList extends Component {
     constructor(props){
-        super(props);        
+        super(props)        
         this.state = {
             tags: this.props.data
         }
     }
 
     addTag = (text) => {
-        let temp = this.state.tags.slice();
-        temp.push(text);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.push(text)
+        this.setState({ tags: temp })
     }
 
     removeTag = (index) => {
-        let temp = this.state.tags.slice();
-        temp.splice(index, 1);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.splice(index, 1)
+        this.setState({ tags: temp })
     }   
 
     render() {
@@ -55,7 +55,7 @@ class TagList extends Component {
 
 class Candidate extends Component {
     constructor(){
-        super();
+        super()
         this.state = {
             percentage: 65,
             switched: false,
@@ -73,12 +73,12 @@ class Candidate extends Component {
         this.setState(prevState => {
             return {
                 switched: !prevState.switched
-            };
-        });
-    };
+            }
+        })
+    }
 
     onChange = (value) => {
-        this.setState({ value });
+        this.setState({ value })
     }
 
     pageNavigation = (path) => {
@@ -86,7 +86,7 @@ class Candidate extends Component {
     }
 
     render() {
-        const { percentage, opportunities, skills, locations, value } = this.state;
+        const { percentage, opportunities, skills, locations, value } = this.state
         return (
             <Wrapper>
                 <Header edit/>
@@ -185,4 +185,4 @@ class Candidate extends Component {
     }
 }
 
-export default Candidate;
+export default Candidate

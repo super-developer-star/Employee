@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router'
 
-import CircularProgressbar from '../../../components/CircularProgressbar';
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
-import Tags from '../../../components/Tags';
+import CircularProgressbar from '../../../components/CircularProgressbar'
+import Header from '../../../components/Header'
+import Footer from '../../../components/Footer'
+import Tags from '../../../components/Tags'
 import { 
     Wrapper,
     Heading,
@@ -18,27 +18,27 @@ import {
     Info,
     TagWrapper,
     FieldWrapper,
-    Contact } from './Style';
-import Images from '../../../themes/images';
+    Contact } from './Style'
+import Images from '../../../themes/images'
 
 class TagList extends Component {
     constructor(props){
-        super(props);        
+        super(props)        
         this.state = {
             tags: this.props.data
         }
     }
 
     addTag = (text) => {
-        let temp = this.state.tags.slice();
-        temp.push(text);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.push(text)
+        this.setState({ tags: temp })
     }
 
     removeTag = (index) => {
-        let temp = this.state.tags.slice();
-        temp.splice(index, 1);
-        this.setState({ tags: temp });
+        let temp = this.state.tags.slice()
+        temp.splice(index, 1)
+        this.setState({ tags: temp })
     }
 
     render() {
@@ -50,7 +50,7 @@ class TagList extends Component {
 
 class Employer extends Component {
     constructor(){
-        super();
+        super()
         this.state = {
             percentage: 65,
             vacancies: ["Backend Developer", "Frontend Developer"],
@@ -63,7 +63,7 @@ class Employer extends Component {
     }
 
     render() {
-        const { percentage, vacancies, locations } = this.state;
+        const { percentage, vacancies, locations } = this.state
         return (
             <Wrapper>
                 <Header edit/>
@@ -139,4 +139,4 @@ class Employer extends Component {
     }
 }
 
-export default Employer;
+export default Employer

@@ -1,17 +1,17 @@
-import React from 'react';
-import { Route, IndexRoute, Redirect } from 'react-router';
+import React from 'react'
+import { Route, IndexRoute } from 'react-router'
 
-import App from './App';
-import Home from './pages/LandingPage';
-import TalentSignUp from './pages/SignUp/Talent';
-import EmployerSignUp from './pages/SignUp/Employer';
-import TalentPage from './pages/Profile/Talent';
-import EmployerPage from './pages/Profile/Employer';
-import Category from './pages/Profile/Talent/Category';
-import Submition from './pages/Profile/Talent/Submition';
-import Candidate from './pages/Profile/Talent/Candidate';
-import Standard from './pages/About';
-import Contact from './pages/Contact';
+import App from './App'
+import Home from './pages/LandingPage'
+import TalentSignUp from './pages/SignUp/Talent'
+import EmployerSignUp from './pages/SignUp/Employer'
+import TalentPage from './pages/Profile/Talent'
+import EmployerPage from './pages/Profile/Employer'
+import Category from './pages/Profile/Talent/Category'
+import Submition from './pages/Profile/Talent/Submition'
+import Candidate from './pages/Profile/Talent/Candidate'
+import Standard from './pages/About'
+import Contact from './pages/Contact'
 
 export default (
     <Route path="/" component={ App }>

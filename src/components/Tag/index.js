@@ -15,4 +15,4 @@ class Tag extends Component {
     }
 }
 
-export default Tag;
+export default Tag

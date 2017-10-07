@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
-import $ from 'jquery';
+import $ from 'jquery'
 
 import Model from '../Model'
-import { Wrapper,
-     ModelWrapper,
-     SaveButton, 
-     EditButton,
-     Img, 
-     Nav, 
-     Menu, 
-     LoginButton, 
-     Container } from './Style'
+import { 
+    Wrapper,
+    ModelWrapper,
+    SaveButton, 
+    EditButton,
+    Img, 
+    Nav, 
+    Menu, 
+    LoginButton, 
+    Container } from './Style'
 import Images from '../../themes/images'
 
 class Navigation extends Component {
@@ -24,17 +25,15 @@ class Navigation extends Component {
         }      
     }
     
-    
-
     toggleNavigation = () => {
         this.setState({
             isActive: !this.state.isActive
-         });
+        })
   
         if(!this.state.isActive){
-            $("body").css({"overflow": "hidden"});
+            $("body").css({"overflow": "hidden"})
         } else {
-            $("body").css("overflow", "visible");
+            $("body").css("overflow", "visible")
         }        
     }
     
@@ -42,12 +41,12 @@ class Navigation extends Component {
         this.setState({
             isActive: !this.state.isActive
         })
-        $("body").css("overflow", "visible");
-        browserHistory.push(path);
+        $("body").css("overflow", "visible")
+        browserHistory.push(path)
     } 
     
     render() {
-        const { landing, save, edit } = this.props;
+        const { landing, save, edit } = this.props
         return (
             <Wrapper>
                 <ModelWrapper landing={landing}>
@@ -74,4 +73,4 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+export default Navigation

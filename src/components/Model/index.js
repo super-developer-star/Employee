@@ -8,7 +8,7 @@ import { Wrapper } from './Style'
 
 class Model extends React.Component {
     constructor(props){
-        super(props);
+        super(props)
         this.state = {
             switched: this.props.type === 'employer'
         }
@@ -17,14 +17,14 @@ class Model extends React.Component {
     componentWillReceiveProps(nextProps){
         this.setState({
             switched: nextProps.type === 'employer' ? true : false
-        });
+        })
     }
 
     toggleSwitch = () => {
-        const { dispatch } = this.props;
+        const { dispatch } = this.props
         let type = this.state.switched ? 'talent' : 'employer'        
-        dispatch(changeType(type));
-    };
+        dispatch(changeType(type))
+    }
 
     render () {            
         return (
@@ -35,6 +35,7 @@ class Model extends React.Component {
     }
 }
 
+// Map state to props
 const mapStateToProps = (state) => {
     return {
         type: state.auth.type

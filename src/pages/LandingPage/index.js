@@ -1,24 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import styled from 'styled-components';
-import Header from '../../components/Header';
-import MainBanner from '../../components/MainBanner';
-import HowItWork from '../../components/HowItWork';
-import Footer from '../../components/Footer';
-import Images from '../../themes/images'
-
-const Wrapper = styled.div`
-    background: -webkit-linear-gradient(top,rgba(54, 193, 93, 0.5) 0%,rgba(64, 7, 61, 0.75) 80%), url(${Images.background}) top center no-repeat;
-    background-size: cover;
-    color: #fff;
-    font-weight: 300;
-    margin-top: -10px;
-    height: 1000px;
-    text-align: center;
-    @media(max-width:767px){
-        height: 750px;
-    }
-`
+import Header from '../../components/Header'
+import MainBanner from '../../components/MainBanner'
+import HowItWork from '../../components/HowItWork'
+import Footer from '../../components/Footer'
+import { Wrapper } from './Style'
 
 export default class LandingPage extends Component {
 

@@ -1,45 +1,70 @@
-import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
+import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField'
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux' 
 
-import Header from '../../../components/Header';
-import { Wrapper, Content, Heading, ButtonWrapper, GoogleButton, FacebookButton, CircleButton, Text, Form, UnderLine, Img, SignUpButton } from './Style';
+import Header from '../../../components/Header'
+import { 
+    Wrapper, 
+    Content, 
+    Heading, 
+    ButtonWrapper, 
+    GoogleButton, 
+    FacebookButton, 
+    CircleButton, 
+    Text, 
+    Form, 
+    UnderLine, 
+    Img, 
+    SignUpButton } from './Style'
 import Images from '../../../themes/images'
 import { session } from '../../../services/session'
 import { signUpRequest } from '../../../actions/auth'
+import * as Validate from '../../../constants/validate'
 
 const styles = {
     floatingLabelStyle: {
-        color: '#565252'
+        error : {
+            color: '#f7be28'
+        },
+        success : {
+            color: '#565252'
+        }        
     },
     focusStyle: {
-        color: '#333',
-        fontWeight: 700,
-        transform: 'scale(0.75) translate(0px, -35px)'
+        error : {
+            color: '#f7be28',
+            fontWeight: 700,
+            transform: 'scale(0.75) translate(0px, -35px)'
+        },
+        success : {
+            color: '#333',
+            fontWeight: 700,
+            transform: 'scale(0.75) translate(0px, -35px)'
+        }         
     }
 }
 
 class SignUp extends Component {
     constructor(props){
-        super(props);
+        super(props)
         this.state = {
-            isName: '',
-            isEmail: '',
-            isPlace: '',
-            isRequired: false
-        };
+            isValidate: false,
+            isFullName: false,
+            isEmail: false,
+            isLocation: false,            
+        }
     }
 
     componentWillMount() {
-        const { isLoggedIn } = this.props;
+        const { isLoggedIn } = this.props
         // if(isLoggedIn || session()){
-        //     console.log('login', isLoggedIn, session());
-        //     browserHistory.push('/profile/talent');
+        //     console.log('login', isLoggedIn, session())
+        //     browserHistory.push('/profile/talent')
         // }
     }
 
@@ -57,7 +82,7 @@ class SignUp extends Component {
         sessionStorage.setItem('google', obj.accessToken)
         // this.props.actions.signUpRequest('Signup1', obj)
         //     .then(() => {
-                browserHistory.push('/profile');
+                browserHistory.push('/profile/talent')
         //     })
         //     .catch(() => {
         //         //TODO: any processing
@@ -66,93 +91,61 @@ class SignUp extends Component {
 
     responseFacebook(response) { 
         console.log('facebook-response', response)       
-        const name = response.name.split(" ");
+        const name = response.name.split(" ")
         const obj = {
             firstName: name[0],
             LastName: name[1],
             Email: response.email,
-            accessToken: response.accessToken,
-            picture: response.picture.data.url
+            // accessToken: response.accessToken,
+            // picture: response.picture.data.url
         }
-        sessionStorage.setItem('fb', obj.accessToken)  
-        this.props.actions.signUpRequest('Signup1', obj)
+        sessionStorage.setItem('fb', response.accessToken)  
+        // this.props.actions.signUpRequest('Signup1', obj)
         // .then(() => {
-            browserHistory.push('/profile');
+            browserHistory.push('/profile/talent')
         // })
         // .catch(() => {
-            //TODO: any processing
+            // TODO: any processing
         // })         
     }
 
-    getName = (e) => {
-        let name = (e.target.value).toLowerCase();
-        this.setState({
-            isName: name,
-            isRequired: false
-        });
-    }
-
-    getEmail = (e) => {
-        let email = (e.target.value).toLowerCase();
-        this.setState({
-            isEmail: email,
-            isRequired: false
-        });
-    }
-
-    getPlace = (e) => {
-        let place = (e.target.value).toLowerCase();
-        this.setState({
-            isPlace: place,
-            isRequired: false
-        });
-    }
-
-    gotoNextPage = () => {        
-        const { isName, isEmail, isPlace, isRequired } = this.state;
-        let name = '', email = '', place = '';
-        if(isName === '' || isName === 'error'){
-            if(isName === ''){
-                name = 'error';
-                this.setState({isName: name})
-            }      
+    getValue = (e) => {
+        let { name, value } = e.target
+        this.setState({ [name]: value})
+        if(name === 'fullname'){
+            this.setState({ isFullName: Validate.fullnameValidate(value)})
         }
-        if(isEmail === '' || isEmail === 'error'){
-            if(isEmail === ''){
-                email = 'error'
-                this.setState({isEmail: email})
-            }
+        if(name === 'email'){
+            this.setState({ isEmail: Validate.emailValidate(value)})
         }
-        if(isPlace === '' || isPlace === 'error'){
-            if(isPlace === ''){
-                place = 'error'
-                this.setState({isPlace: place})
-            }
-        } 
-        if(name !== 'error' && email !== 'error' && place !== 'error' && isName !== 'error' && isEmail !== 'error' && isPlace !== 'error'){
-            let credential = {};
-            credential = {
-                FirstName: isName.split(" ")[0],
-                LastName: isName.split(" ")[1],
-                Email: isEmail,
-                Location: isPlace
-            }     
-            // this.props.actions.signUpRequest('Signup1', credential)
-            // .then(() => {
-                browserHistory.push('/profile/talent');
-            // })
-            // .catch(() => {
-                //TODO: any processing
-            // })   
-        }   else if(!isRequired){
-                this.setState({
-                isRequired: true,        
-            })
+        if(name === 'location'){
+            this.setState({ isLocation: Validate.palceValidate(value)})
         }
+    }
+    handleSignUp = () => {        
+        const { isFullName, isEmail, isLocation, isValidate } = this.state
+        this.setState({ isValidate: true})
+        if(!isFullName || !isEmail || isLocation ){
+            return
+        }
+        const obj = {
+            Email: this.state.email,
+            FirstName: this.state.fullname.split(' ')[0],
+            LastName: this.state.fullname.split(' ')[1],
+            Location: this.state.location
+        }
+        // this.props.actions.signUpRequest('Signup1', obj)
+        // .then(() => {
+                browserHistory.push('/profile/talent')
+        // })
+        // .catch(() => {
+            // TODO: any processing
+        // })            
     }
 
     render() {
-        const { isName, isEmail, isPlace, isRequired } = this.state;          
+        const { isFullName, isEmail, isLocation, isValidate } = this.state     
+        console.log('name', isFullName)     
         return (
             <Wrapper>                      
                 <Header visible percent={1}/>                       
@@ -181,104 +174,68 @@ class SignUp extends Component {
                         </FacebookButton>
                     </ButtonWrapper>
                     <CircleButton>Or</CircleButton>
-                    { isRequired &&
-                        <Text>Please fill in required fields</Text>
-                    }
-                    { isName !== 'error' ?
-                        <Form>
-                            <MuiThemeProvider>
-                                <TextField
-                                    onChange={this.getName}
-                                    floatingLabelText="Full Name"
-                                    floatingLabelStyle={styles.floatingLabelStyle}
-                                    floatingLabelShrinkStyle={styles.focusStyle}
-                                    underlineShow={false}
-                                  />              
-                            </MuiThemeProvider> 
-                            { isName === '' ?
-                                <Img empty></Img> : <Img src={Images.check} alt="checked"></Img>
-                            }
-                        </Form> :                                
-                        <Form error>
-                            <MuiThemeProvider>
-                                <TextField
-                                    onChange={this.getName}
-                                    floatingLabelText="Full Name"
-                                    floatingLabelStyle={styles.floatingLabelStyle}
-                                    floatingLabelShrinkStyle={styles.focusStyle}
-                                    underlineShow={false}
+                    { isValidate && (!isFullName || !isEmail || !isLocation ) ?
+                        <Text>Please fill in required fields</Text> : null
+                    }                    
+                    <Form>
+                        <MuiThemeProvider>
+                            <TextField
+                                name="fullname"
+                                onChange={this.getValue}
+                                floatingLabelText="Full Name"
+                                floatingLabelStyle={ isValidate && !isFullName ? styles.floatingLabelStyle.error : styles.floatingLabelStyle.success}
+                                floatingLabelShrinkStyle={ isValidate && !isFullName ? styles.focusStyle.error : styles.focusStyle.success }
+                                underlineShow={false}
                                 />              
-                            </MuiThemeProvider> 
-                            <Img src={Images.warnning} alt="warnning"></Img>
-                        </Form>
+                        </MuiThemeProvider> 
+                        { isFullName && <Img src={Images.check} alt="checked"></Img> }
+                        { isValidate && !isFullName && <Img src={Images.warnning} alt="warnning"></Img> }
+                        { !isFullName && !isValidate && <Img empty></Img> }                                                                        
+                    </Form> 
+                    { !isFullName && isValidate ?
+                        <UnderLine error></UnderLine> : <UnderLine></UnderLine>
                     }
-                    { isName !== 'error' ?
-                        <UnderLine ></UnderLine> : <UnderLine empty></UnderLine>
-                    }
-                    { isEmail !== 'error' ?
-                        <Form>
-                            <MuiThemeProvider>
-                                <TextField
-                                    onChange={this.getEmail}
-                                    floatingLabelText="E-mail"
-                                    floatingLabelStyle={styles.floatingLabelStyle}
-                                    floatingLabelShrinkStyle={styles.focusStyle}
-                                    underlineShow={false}
+                    <Form>
+                        <MuiThemeProvider>
+                            <TextField
+                                name="email"
+                                onChange={this.getValue}
+                                floatingLabelText="E-mail"
+                                floatingLabelStyle={ isValidate && !isEmail ? styles.floatingLabelStyle.error : styles.floatingLabelStyle.success}
+                                floatingLabelShrinkStyle={ isValidate && !isEmail ? styles.focusStyle.error : styles.focusStyle.success }
+                                underlineShow={false}
                                 />              
-                            </MuiThemeProvider> 
-                            { isEmail === '' ?
-                                <Img empty></Img> : <Img src={Images.check} alt="checked"></Img>
-                            }
-                        </Form> : 
-                        <Form error>
-                            <MuiThemeProvider>
-                                <TextField
-                                    onChange={this.getEmail}
-                                    floatingLabelText="E-mail"
-                                    floatingLabelStyle={styles.floatingLabelStyle}
-                                    floatingLabelShrinkStyle={styles.focusStyle}
-                                    underlineShow={false}
-                                />              
-                            </MuiThemeProvider> 
-                            <Img src={Images.warnning} alt="warnning"></Img>
-                        </Form>
+                        </MuiThemeProvider> 
+                        { isEmail && <Img src={Images.check} alt="checked"></Img> }
+                        { isValidate && !isEmail && <Img src={Images.warnning} alt="warnning"></Img> }
+                        { !isEmail && !isValidate && <Img empty></Img> } 
+                    </Form> 
+                    { !isEmail && isValidate ?
+                        <UnderLine error></UnderLine> : <UnderLine></UnderLine>
                     }
-                    { isEmail !== 'error' ?
-                        <UnderLine ></UnderLine> : <UnderLine empty></UnderLine>
-                    }
-                    { isPlace !== 'error' ?
-                        <Form>
-                            <MuiThemeProvider>
-                                <TextField
-                                    onChange={this.getPlace}
-                                    floatingLabelText="Where do you live?"
-                                    floatingLabelStyle={styles.floatingLabelStyle}
-                                    floatingLabelShrinkStyle={styles.focusStyle}
-                                    underlineShow={false}
+                    <Form>
+                        <MuiThemeProvider>
+                            <TextField
+                                name="location"
+                                onChange={this.getValue}
+                                floatingLabelText="Where do you live?"
+                                floatingLabelStyle={ isValidate && !isLocation ? styles.floatingLabelStyle.error : styles.floatingLabelStyle.success}
+                                floatingLabelShrinkStyle={ isValidate && !isLocation ? styles.focusStyle.error : styles.focusStyle.success }
+                                underlineShow={false}
                                 />              
-                            </MuiThemeProvider> 
-                            { isPlace === '' ?
-                                <Img empty></Img> : <Img src={Images.check} alt="checked"></Img>
-                            }
-                        </Form> :           
-                        <Form error>
-                            <MuiThemeProvider>
-                                <TextField
-                                    onChange={this.getPlace}
-                                    floatingLabelText="Where do you live?"
-                                    floatingLabelStyle={styles.floatingLabelStyle}
-                                    floatingLabelShrinkStyle={styles.focusStyle}
-                                    underlineShow={false}
-                                />              
-                            </MuiThemeProvider> 
-                            <Img src={Images.warnning} alt="warnning"></Img>
-                        </Form>
-                    }
-                    { isPlace !== 'error' ?
-                        <UnderLine ></UnderLine> : <UnderLine empty></UnderLine>
+                        </MuiThemeProvider> 
+                        { isLocation && <Img src={Images.check} alt="checked"></Img> }
+                        { isValidate && !isLocation && <Img src={Images.warnning} alt="warnning"></Img> }
+                        { !isLocation && !isValidate && <Img empty></Img> } 
+                    </Form> 
+                    { !isLocation && isValidate ?
+                        <UnderLine error></UnderLine> : <UnderLine></UnderLine>
                     }
                     <ButtonWrapper signup>
-                        <SignUpButton active={!isRequired} onClick={this.gotoNextPage}>Sign up</SignUpButton>
+                        { !isValidate || (isFullName && isEmail && isLocation) ?
+                            <SignUpButton active onClick={this.handleSignUp}>Sign up</SignUpButton> :
+                            <SignUpButton onClick={this.handleSignUp}>Sign up</SignUpButton>
+                        }
                     </ButtonWrapper>
                 </Content>
             </Wrapper>
@@ -286,21 +243,21 @@ class SignUp extends Component {
     }
 }
 
-/* Map state to props */
+// Map state to props
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.auth.isLoggedIn
     }
 }
 
-/* Map Actions to Props */
+// Map action to props
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
             signUpRequest
         }, dispatch)
-    };
+    }
 }
 
 /* Connect Component with Redux */
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
