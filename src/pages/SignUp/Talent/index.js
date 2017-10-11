@@ -23,6 +23,7 @@ import {
     SignUpButton } from './Style'
 import Images from '../../../themes/images'
 import { session } from '../../../services/session'
+import { request } from '../../../services/request'
 import { signUpRequest } from '../../../actions/auth'
 import * as Validate from '../../../constants/validate'
 
@@ -51,7 +52,7 @@ const styles = {
 
 class SignUp extends Component {
     constructor(props){
-        super(props)
+        super(props)        
         this.state = {
             isValidate: false,
             isFullName: false,
@@ -60,12 +61,10 @@ class SignUp extends Component {
         }
     }
 
-    componentWillMount() {
-        const { isLoggedIn } = this.props
-        // if(isLoggedIn || session()){
-        //     console.log('login', isLoggedIn, session())
-        //     browserHistory.push('/profile/talent')
-        // }
+    componentDidMount() {        
+        if(session()){            
+            browserHistory.push('/profile/talent')
+        }
     }
 
     responseGoogle(response) {
@@ -73,40 +72,35 @@ class SignUp extends Component {
         const profile = response.profileObj
         const name = profile.name.split(" ")
         const obj = {
-            firstName: name[0],
-            LastName: name[1],
-            Email: profile.email,
-            accessToken: response.accessToken,
-            picture: profile.imageUrl
-        }
-        sessionStorage.setItem('google', obj.accessToken)
-        // this.props.actions.signUpRequest('Signup1', obj)
-        //     .then(() => {
+            Email: profile.email,  
+            FirstName: name[0],
+            LastName: name[1], 
+            Location: null                     
+            // picture: profile.imageUrl
+        }        
+        request('Signup1', obj)
+            .then(response => {
+                window.localStorage.setItem('profileId', response)
                 browserHistory.push('/profile/talent')
-        //     })
-        //     .catch(() => {
-        //         //TODO: any processing
-        //     })    
+            })
     }
 
     responseFacebook(response) { 
         console.log('facebook-response', response)       
         const name = response.name.split(" ")
         const obj = {
-            firstName: name[0],
-            LastName: name[1],
             Email: response.email,
+            FirstName: name[0],
+            LastName: name[1],       
+            Location: null     
             // accessToken: response.accessToken,
             // picture: response.picture.data.url
-        }
-        sessionStorage.setItem('fb', response.accessToken)  
-        // this.props.actions.signUpRequest('Signup1', obj)
-        // .then(() => {
-            browserHistory.push('/profile/talent')
-        // })
-        // .catch(() => {
-            // TODO: any processing
-        // })         
+        }         
+        request('Signup1', obj)
+            .then(response => {
+                window.localStorage.setItem('profileId', response)
+                browserHistory.push('/profile/talent')
+            })
     }
 
     getValue = (e) => {
@@ -122,8 +116,9 @@ class SignUp extends Component {
             this.setState({ isLocation: Validate.palceValidate(value)})
         }
     }
+
     handleSignUp = () => {                       
-        const { isFullName, isEmail, isLocation, isValidate } = this.state
+        const { isFullName, isEmail, isLocation } = this.state
         this.setState({ isValidate: true})
         if(!isFullName || !isEmail || !isLocation ){
             return
@@ -134,14 +129,14 @@ class SignUp extends Component {
             LastName: this.state.fullname.split(' ')[1],
             Location: this.state.location
         }
-        // this.props.actions.signUpRequest('Signup1', obj)
-        // .then(() => {
-                console.log('signup')
-                browserHistory.push('/profile/talent')
-        // })
-        // .catch(() => {
-            // TODO: any processing
-        // })            
+        this.props.actions.signUpRequest('Signup1', obj)
+            .then(() => {
+                    console.log('signup')
+                    browserHistory.push('/profile/talent')
+            })
+            .catch(() => {
+                // TODO: any processing
+            })               
     }
 
     render() {
@@ -165,7 +160,7 @@ class SignUp extends Component {
                         <FacebookButton>
                             <FacebookLogin
                                 appId="459046371113157"
-                                autoLoad={true}
+                                autoLoad={false}
                                 fields="name,email,picture,location"
                                 callback={this.responseFacebook}
                                 cssClass='test'

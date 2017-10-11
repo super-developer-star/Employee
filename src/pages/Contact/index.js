@@ -24,10 +24,6 @@ const styles = {
 }
 
 class Contact extends Component {
-    constructor(){
-        super()
-    }
-
     getText = (e) => {        
         if(e.keyCode === 13 && e.target.value) {            
             console.log(e.target.value)            

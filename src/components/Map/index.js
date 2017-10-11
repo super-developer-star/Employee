@@ -16,15 +16,15 @@ class MapView extends Component {
                     height: "50vh",
                     width: "70vw"
                 }}
-                center={[12.568337, 55.676098]}
-                zoom={[14]}>  
+                center={[12.5866593, 55.6795204]}
+                zoom={[15]}>  
                 <Marker
-                coordinates={[12.568337, 55.676098]}
+                coordinates={[12.5866593, 55.6795204]}
                 anchor="top">
                 <img src={Images.marker} style={{width:'50px', height:'50px'}}/>
                 </Marker>              
                 <Layer>
-                    <Feature coordinates={[12.568337, 55.676098]}/>
+                    <Feature coordinates={[12.5866593, 55.6795204]}/>
                 </Layer>
             </Map>
         )

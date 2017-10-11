@@ -113,13 +113,14 @@ class Submition extends Component {
 
     pageNavigation = (path) => {
         const data = {
-            // ProfileId: this.props.profileID,
+            ProfileId: window.localStorage.getItem('profileId'),
             Locations: this.state.locations,
             Beverage: this.state.beverage,
             Social: this.state.urls,
             Status: this.state.status
         }
-        this.props.actions.getSubmitionData(data.Locations, data.Beverage, data.Social, data.Status)
+        console.log('data', data)
+        this.props.actions.getSubmitionData(data.profileID, data.Locations, data.Beverage, data.Social, data.Status)
         // this.props.actions.postSubmitionData('Signup3', data)
             // .then(() => {
                 browserHistory.push(path)
@@ -197,9 +198,9 @@ class Submition extends Component {
                         <SubHeading>What's your current status?</SubHeading>                        
                         <ButtonWrapper>
                             <Button active={status === 1} onClick={() => this.getStatus(1)}>Active</Button>
-                            <Button active={status === 2} onClick={() => this.getStatus(1)}>Passive</Button>
-                            <Button active={status === 3} onClick={() => this.getStatus(1)}>It's complicated</Button>                                                                                                                
-                            <Button active={status === 4} onClick={() => this.getStatus(1)}>Undecided<img src={Images.remove} alt="" /></Button>                    
+                            <Button active={status === 2} onClick={() => this.getStatus(2)}>Passive</Button>
+                            <Button active={status === 3} onClick={() => this.getStatus(3)}>It's complicated</Button>                                                                                                                
+                            <Button active={status === 4} onClick={() => this.getStatus(4)}>Undecided<img src={Images.remove} alt="" /></Button>                    
                         </ButtonWrapper>
                     </FieldWrapper>
                     <Navigation>

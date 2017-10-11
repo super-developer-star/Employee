@@ -1,9 +1,9 @@
 export const session = () => {
-    const fb = sessionStorage.getItem('fb')
-    const google = sessionStorage.getItem('google')
+    const profileId = window.localStorage.getItem('profileId')   
+    console.log("profileId", profileId) 
     let loggedIn = false
   
-    if (fb || google) {
+    if (profileId) {
       loggedIn = true
     }
   

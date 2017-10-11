@@ -5,10 +5,12 @@ export function signUpRequest(step, userInfo){
     return function (dispatch) {
         return new Promise((resolve, reject) => {
             request(step, userInfo)
-                .then(response => {
+                .then(response => {                    
+                    window.localStorage.setItem('profileId', response)
+                    console.log('auth res', response, window.localStorage)
                     dispatch({
                         type: Types.SIGNUP_SUCCESS,
-                        data: response.data
+                        data: response
                     });
                     resolve(true);
                 })

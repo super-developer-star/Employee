@@ -3,6 +3,8 @@ import Switch from 'react-toggle-switch'
 import "../../../../../node_modules/react-toggle-switch/dist/css/switch.min.css" 
 import { RangeSlider } from 'reactrangeslider'
 import { browserHistory } from 'react-router'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import CircularProgressbar from '../../../../components/CircularProgressbar'
 import Header from '../../../../components/Header'
@@ -54,13 +56,13 @@ class TagList extends Component {
 }
 
 class Candidate extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             percentage: 65,
-            switched: false,
-            opportunities: ["Backend Developer", "Frontend Developer"],
-            skills: ["HTML5", "CSS", "Angular", "Drupal"],
+            switched: this.props.status === 2,
+            opportunities: ["Frontend Engineer", "Backend Engineer"],
+            skills: this.props.techs,
             locations: ["Copenhagen", "Stockholm"],
             value : {
                 start: 30,
@@ -85,8 +87,9 @@ class Candidate extends Component {
         browserHistory.push(path)
     }
 
-    render() {
+    render() {        
         const { percentage, opportunities, skills, locations, value } = this.state
+        console.log(this.props.status);
         return (
             <Wrapper>
                 <Header edit/>
@@ -95,7 +98,7 @@ class Candidate extends Component {
                     <Avatar src={Images.user} alt="user" />
                     <User>
                         <h1>Christian Henriksen</h1>
-                        <p>Engineering</p>                        
+                        <p>{this.props.roles[0]}</p>                        
                         <ToggleWrapper>
                             <p>Active</p>                            
                                 <Switch onClick={this.toggleSwitch} on={this.state.switched}/>                            
@@ -146,11 +149,16 @@ class Candidate extends Component {
                 </FieldWrapper>                
                 <TagWrapper>
                     <h1>Opportunities I'm interested in</h1>
-                    <TagList data={opportunities} />
+                    { opportunities &&
+                        <TagList data={opportunities} />
+                    }                    
                 </TagWrapper>
                 <TagWrapper>
                     <h1>My Skills</h1>
-                    <TagList data={skills} />
+                    { skills && 
+                        <TagList data={skills} />
+                    }
+                    
                 </TagWrapper>
                 <TagWrapper>
                     <h1>Locations I'm interested in</h1>
@@ -185,4 +193,14 @@ class Candidate extends Component {
     }
 }
 
-export default Candidate
+// Map state to props
+const mapStateToProps = (state) => {
+    return {    
+        roles: state.talent.roles,    
+        subRoles: state.talent.subRoles,
+        techs: state.talent.techs,  
+        status: state.talent.status      
+    }
+}
+
+export default connect(mapStateToProps)(Candidate)

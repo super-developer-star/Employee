@@ -125,15 +125,13 @@ class Category extends Component {
             }
         })
         const obj = {
-            // ProfileId: this.props.profileID,
+            ProfileId: window.localStorage.getItem('profileId'),
             Roles: roles,
             SubRoles: subRoles,
             Technologies: this.state.tags
         }
-        console.log('roles', roles)
-        console.log('subRoles', subRoles)
-        console.log('save', subRolesForSave)
-        this.props.actions.getSubRolesAndTechs(subRolesForSave, this.state.tags)
+        console.log('data', obj)
+        this.props.actions.getSubRolesAndTechs(roles, subRolesForSave, this.state.tags)
         // this.props.actions.postSignup2Data('Singup2', obj)
             // .then(() => {
                  browserHistory.push('/profile/talent/submition')
@@ -141,7 +139,7 @@ class Category extends Component {
     }
 
     render() {
-        const { role, allSubRoles, tags } = this.state
+        const { tags } = this.state
         return (
             <Wrapper>   
                 <Form 

@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
-// import { session } from '../../../services/session'
+import { session } from '../../../services/session'
 
 class TalentPage extends Component {
 
-    componentDidMount(){
-        // const { isLoggedIn } = this.props
-        // if(!isLoggedIn && !session()){
-        //     { this.props.type === 'talent' ?   
-                    // browserHistory.push('/signup/talent') : browserHistory.push('signup/employer')
-        //     }
-        // }
+    componentDidMount(){        
+        if(!session()){
+           this.props.type === 'talent' ? browserHistory.push('/signup/talent') : browserHistory.push('signup/employer') 
+        }
     }
 
     render() {
@@ -26,8 +23,7 @@ class TalentPage extends Component {
 
 // Map state to props
 const mapStateToProps = (state) => {
-    return {
-        isLoggedIn: state.auth.isLoggedIn,
+    return {        
         type: state.auth.type
     }
 }

@@ -1,9 +1,10 @@
 import * as Types from '../constants/actionType'
 import { request } from '../services/request'
 
-export const getSubRolesAndTechs = (subRoles, techs) => {
+export const getSubRolesAndTechs = (roles, subRoles, techs) => {
     return {
         type: Types.GET_ROLES_TECH,
+        roles,
         subRoles,
         techs
     }

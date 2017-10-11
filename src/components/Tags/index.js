@@ -13,8 +13,8 @@ const hide = {
 }
 
 class Tags extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state =  {
             addtag: false
         }
@@ -41,15 +41,17 @@ class Tags extends Component {
         this.props.removeTag(index)
     }
 
-    render() {
-        const taglist = this.props.data.map((name, index) => {
-            return (
-                <Tag name={name} key={index} onRemove={ () => this.remove(index) } />
-            )
-        })
+    render() {      
+        const { data } = this.props
+        console.log('data', data);
         return (
-            <Wrapper>
-                {taglist}                
+            <Wrapper>                
+                { data && data.map((name, index) => {
+                        return (
+                            <Tag name={name} key={index} onRemove={ () => this.remove(index) } />
+                        )
+                    }) 
+                }                
                 <AddButton onClick={ this.showHideTagInput } style={ this.state.addtag? hide:null }>Add</AddButton>                
                 { this.state.addtag &&
                     <Input>
