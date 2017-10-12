@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
-import { session } from '../../../services/session'
+// import { session } from '../../../services/session'
 
 class TalentPage extends Component {
 
-    componentDidMount(){        
-        if(!session()){
+    componentWillMount(){        
+        if((window.localStorage.getItem('profileId')).length === 0){
            this.props.type === 'talent' ? browserHistory.push('/signup/talent') : browserHistory.push('signup/employer') 
         }
     }

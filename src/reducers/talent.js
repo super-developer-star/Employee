@@ -7,7 +7,7 @@ const initialState = {
     locations : [],
     beverage: '',
     social: [],
-    status: null
+    status: 0
 }
 
 const talent_reducer = (state = initialState, action) => {

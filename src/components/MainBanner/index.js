@@ -14,8 +14,12 @@ import {
 
 class MainBanner extends React.Component {
     
-    pageNavigation = () => {
-        this.props.type === 'talent' ? browserHistory.push('/signup/talent') : browserHistory.push('/signup/employer')
+    pageNavigation = () => {  
+        if(this.props.type === 'talent'){
+            window.localStorage.getItem('profileId') ? browserHistory.push('/profile/talent') : browserHistory.push('/signup/talent')
+        } else {
+            browserHistory.push('/signup/employer')
+        }
     }
 
     render() {
@@ -32,7 +36,7 @@ class MainBanner extends React.Component {
                         smarter and hire better talent. Now.<br/></Text>
                     }
                     <Heading>Get your own agent</Heading>
-                    <SignUpLink onClick={this.pageNavigation}>Go</SignUpLink>
+                    <SignUpLink onClick={() =>this.pageNavigation()}>Go</SignUpLink>
                     <Text smaller><Image src={ Images.clock } />2 min. Sign up - and it's free for talent (forever)</Text>
                 </Content>
                     <Arrow><img src={Images.arrowDown} alt="arrow" /></Arrow>

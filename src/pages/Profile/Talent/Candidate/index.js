@@ -48,8 +48,9 @@ class TagList extends Component {
     }   
 
     render() {
+        console.log('edit1', this.props.editable)
         return (
-            <Tags data={ this.state.tags } removeTag={(index) => this.removeTag(index)} addTag={ (text) => this.addTag(text) } />
+            <Tags data={ this.state.tags } editable={this.props.editable} removeTag={(index) => this.removeTag(index)} addTag={ (text) => this.addTag(text) } />
         )
     }
 }
@@ -66,7 +67,7 @@ class Candidate extends Component {
             value : {
                 start: 30,
                 end: 80
-            }
+            },            
         }
     }
 
@@ -87,8 +88,8 @@ class Candidate extends Component {
     }
 
     render() {        
-        const { percentage, opportunities, skills, locations, value } = this.state
-        console.log(this.props.status);
+        const { percentage, opportunities, skills, locations, value } = this.state       
+        const { isEditable } = this.props       
         return (
             <Wrapper>
                 <Header edit/>
@@ -148,20 +149,22 @@ class Candidate extends Component {
                 </FieldWrapper>                
                 <TagWrapper>
                     <h1>Opportunities I'm interested in</h1>
-                    { opportunities &&
-                        <TagList data={opportunities} />
+                    { opportunities && isEditable ?
+                        <TagList editable={isEditable} data={opportunities} /> : <TagList data={opportunities} />
                     }                    
                 </TagWrapper>
                 <TagWrapper>
                     <h1>My Skills</h1>
-                    { skills && 
-                        <TagList data={skills} />
+                    { skills && isEditable ?
+                        <TagList editable={isEditable} data={skills} /> : <TagList data={skills} />
                     }
                     
                 </TagWrapper>
                 <TagWrapper>
                     <h1>Locations I'm interested in</h1>
-                    <TagList data={locations} />
+                    { locations && isEditable ?
+                        <TagList editable={isEditable} data={locations} /> : <TagList data={locations} />
+                    }                    
                 </TagWrapper>
                 <Slider>
                     <h1>Salary range</h1>
@@ -170,7 +173,7 @@ class Candidate extends Component {
                         value={value}
                         min={0}
                         max={100}
-                        onChange={this.onChange}                        
+                        onChange={this.onChange}                                                
                     /> 
                     <div>
                         <a>eur {value.start}.000</a>    
@@ -194,11 +197,13 @@ class Candidate extends Component {
 
 // Map state to props
 const mapStateToProps = (state) => {
-    return {    
+    return {  
+        isEditable: state.auth.isEditable,  
         roles: state.talent.roles,    
         subRoles: state.talent.subRoles,
         techs: state.talent.techs,  
-        status: state.talent.status      
+        status: state.talent.status,
+        talent: state.talent     
     }
 }
 
