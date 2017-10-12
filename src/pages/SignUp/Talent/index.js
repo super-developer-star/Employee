@@ -22,7 +22,6 @@ import {
     Img, 
     SignUpButton } from './Style'
 import Images from '../../../themes/images'
-import { session } from '../../../services/session'
 import { request } from '../../../services/request'
 import { signUpRequest } from '../../../actions/auth'
 import * as Validate from '../../../constants/validate'
@@ -82,7 +81,9 @@ class SignUp extends Component {
             .then(response => {
                 window.localStorage.setItem('profileId', response)
                 browserHistory.push('/profile/talent')
-            })
+            }).catch((err) => {
+                console.log(err)
+            })  
     }
 
     responseFacebook(response) { 
@@ -100,7 +101,9 @@ class SignUp extends Component {
             .then(response => {
                 window.localStorage.setItem('profileId', response)
                 browserHistory.push('/profile/talent')
-            })
+            }).catch((err) => {
+                console.log(err)
+            })  
     }
 
     getValue = (e) => {

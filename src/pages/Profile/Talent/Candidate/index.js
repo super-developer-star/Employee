@@ -4,7 +4,6 @@ import "../../../../../node_modules/react-toggle-switch/dist/css/switch.min.css"
 import { RangeSlider } from 'reactrangeslider'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import CircularProgressbar from '../../../../components/CircularProgressbar'
 import Header from '../../../../components/Header'

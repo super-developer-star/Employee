@@ -121,10 +121,12 @@ class Submition extends Component {
         }
         console.log('data', data)
         this.props.actions.getSubmitionData(data.profileID, data.Locations, data.Beverage, data.Social, data.Status)
-        // this.props.actions.postSubmitionData('Signup3', data)
-            // .then(() => {
+        this.props.actions.postSubmitionData('Signup3', data)
+            .then(() => {
                 browserHistory.push(path)
-            // })       
+            }).catch((err) => {
+                console.log(err)
+            })         
     }
 
     render() {        
@@ -227,7 +229,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
             getSubmitionData,
-            // postSubmitionData
+            postSubmitionData
         }, dispatch)
     }
 }
