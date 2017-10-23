@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
-// import { session } from '../../../services/session'
-
 class TalentPage extends Component {
 
     componentWillMount(){        
-        if(window.localStorage.getItem('profileId') === null){
+        if(!this.props.isLoggedIn){
            this.props.type === 'talent' ? browserHistory.push('/signup/talent') : browserHistory.push('signup/employer') 
         }
     }
@@ -24,7 +22,8 @@ class TalentPage extends Component {
 // Map state to props
 const mapStateToProps = (state) => {
     return {        
-        type: state.auth.type
+        type: state.auth.type,
+        isLoggedIn: state.auth.isLoggedIn
     }
 }
 
